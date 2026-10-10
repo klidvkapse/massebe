@@ -485,26 +485,31 @@
       border-radius: 9px;
       font-size: 0.88rem;
       color: var(--text);
-      background: #f5f1e7;
+      background: transparent;
+      border: 1px solid var(--border);
     }
 
     .calendar-day.is-empty {
       background: transparent;
+      border-color: transparent;
     }
 
     .calendar-day.is-past {
       color: #b6b8b2;
-      background: transparent;
+      background: #f7f6f2;
+      border-color: transparent;
     }
 
     .calendar-day.is-available {
       background: var(--green-light);
+      border-color: #cbd8c9;
       color: var(--green);
       font-weight: 700;
     }
 
     .calendar-day.is-booked {
       background: #eadfd3;
+      border-color: #dfcbb9;
       color: #72513b;
       text-decoration: line-through;
     }
@@ -534,6 +539,7 @@
 
     .legend-dot.available { background: var(--green-light); border: 1px solid #cbd8c9; }
     .legend-dot.booked { background: #eadfd3; border: 1px solid #dfcbb9; }
+    .legend-dot.check { background: transparent; border: 1px solid var(--border); }
 
     .availability-note {
       margin: 16px 0 0;
@@ -1085,6 +1091,7 @@
             <div class="calendar-legend">
               <span class="legend-item"><span class="legend-dot available"></span>Volno</span>
               <span class="legend-item"><span class="legend-dot booked"></span>Obsazeno</span>
+              <span class="legend-item"><span class="legend-dot check"></span>Ověřit</span>
             </div>
             <p class="availability-note">Přehled je orientační. Aktuální dostupnost a přesný čas si ověříš při rezervaci.</p>
             <div class="availability-action">
@@ -1159,10 +1166,16 @@
       new Date().getFullYear();
 
 
-    // Kalendář: dostupné a obsazené dny nastavuj ve formátu YYYY-MM-DD.
-    // Dny neuvedené v seznamu zůstávají neutrální, aby web nesliboval neověřenou dostupnost.
-    const availableDates = [];
-    const bookedDates = [];
+    // Kalendář: sem zapisuj datum ve formátu RRRR-MM-DD.
+    // Příklad: "2026-10-15"
+    // Zelená = ověřené volno; béžová = obsazeno; obrys = dostupnost ověř v Google Kalendáři.
+    // Zatím jsou seznamy prázdné, protože skutečné termíny nemáme automaticky načtené.
+    const availableDates = [
+      // "2026-10-15",
+    ];
+    const bookedDates = [
+      // "2026-10-16",
+    ];
 
     const monthLabel = document.getElementById("calendar-month");
     const calendarGrid = document.getElementById("calendar-grid");
