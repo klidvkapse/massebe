@@ -460,32 +460,46 @@
     }
 
     .calendar-inner {
-      width: min(100%, 330px);
+      width: min(100%, 760px);
       margin: 0 auto;
-      padding: 22px;
+      padding: 26px 30px;
       border: 1px solid var(--border);
       border-radius: 16px;
       background: var(--paper);
       box-shadow: var(--shadow);
     }
 
+    .calendar-inner {
+      display: grid;
+      grid-template-columns: minmax(190px, 0.8fr) minmax(0, 1.2fr);
+      column-gap: 34px;
+      align-items: center;
+    }
+
     .calendar-heading {
-      margin: 0 0 5px;
+      grid-column: 1;
+      align-self: end;
+      margin: 0 0 8px;
       color: var(--green);
-      font-size: 1.35rem;
+      font-size: 1.65rem;
       line-height: 1.3;
-      text-align: center;
+      text-align: left;
     }
 
     .calendar-note {
-      margin: 0 0 18px;
+      grid-column: 1;
+      align-self: start;
+      margin: 0;
       color: var(--muted);
-      font-size: 0.86rem;
-      line-height: 1.6;
-      text-align: center;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      text-align: left;
     }
 
     .calendar-top {
+      grid-column: 2;
+      grid-row: 1;
+      align-self: end;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -523,9 +537,11 @@
     }
 
     .calendar-grid {
+      grid-column: 2;
+      grid-row: 2 / span 2;
       display: grid;
       grid-template-columns: repeat(7, minmax(0, 1fr));
-      gap: 4px;
+      gap: 7px;
       text-align: center;
     }
 
@@ -570,11 +586,12 @@
     }
 
     .calendar-footnote {
-      margin: 14px 0 0;
+      grid-column: 1 / -1;
+      margin: 18px 0 0;
       color: var(--muted);
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       line-height: 1.5;
-      text-align: center;
+      text-align: left;
     }
 
     @media (max-width: 700px) {
@@ -583,7 +600,31 @@
       }
 
       .calendar-inner {
+        width: min(100%, 390px);
+        display: block;
         padding: 18px;
+      }
+
+      .calendar-heading {
+        margin: 0 0 5px;
+        font-size: 1.35rem;
+        text-align: center;
+      }
+
+      .calendar-note {
+        margin: 0 0 18px;
+        font-size: 0.86rem;
+        text-align: center;
+      }
+
+      .calendar-grid {
+        gap: 4px;
+      }
+
+      .calendar-footnote {
+        margin: 14px 0 0;
+        font-size: 0.75rem;
+        text-align: center;
       }
     }
 
