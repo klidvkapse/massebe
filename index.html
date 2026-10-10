@@ -1,1022 +1,271 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>MÁŠ SE(BE)? | Daniel Verner – kouč</title>
-
-  <meta name="description" content="Někdy nepotřebuješ radu. Potřebuješ jiný pohled. Osobní koučink s Danielem Vernerem. Dovol si představit ti tebe.">
-  <meta name="author" content="Daniel Verner">
-  <meta name="theme-color" content="#f5f1e7">
-
-  <meta property="og:title" content="MÁŠ SE(BE)? – Daniel Verner, kouč">
-  <meta property="og:description" content="Dovol si představit ti tebe. Prostor pro zastavení, nadhled a vlastní směr.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://massebe.cz/">
-
-  <link rel="canonical" href="https://massebe.cz/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --green: #254735;
-      --green-dark: #1b3527;
-      --green-light: #e8eee7;
-      --cream: #f5f1e7;
-      --paper: #fffdf8;
-      --gold: #b18a43;
-      --text: #28342d;
-      --muted: #68736b;
-      --border: #e5dfd2;
-      --shadow: 0 12px 35px rgba(27, 53, 39, 0.07);
+# Build insertion before contact section; no edits to existing styling except additive CSS.
+css_insert = r'''
+    /* MALÝ KALENDÁŘ DOSTUPNOSTI */
+    .availability-section {
+      background: var(--paper);
     }
 
-    * {
-      box-sizing: border-box;
+    .availability-panel {
+      width: min(100%, 560px);
+      margin: 0 auto;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
     }
 
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 85px;
-    }
-
-    body {
-      margin: 0;
-      background: var(--cream);
+    .availability-calendar {
       color: var(--text);
-      font-family: "Raleway", sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
     }
 
-    img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    button,
-    a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .wrap {
-      width: min(1080px, calc(100% - 48px));
-      margin-inline: auto;
-    }
-
-    /* HLAVIČKA */
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(245, 241, 231, 0.96);
-      border-bottom: 1px solid rgba(37, 71, 53, 0.09);
-      backdrop-filter: blur(12px);
-    }
-
-    .nav {
-      min-height: 76px;
+    .calendar-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 12px;
+      margin-bottom: 18px;
     }
 
-    .brand {
+    .calendar-month {
+      margin: 0;
       color: var(--green);
-      text-decoration: none;
-      font-size: 1.13rem;
-      font-weight: 800;
-      letter-spacing: -0.7px;
-      line-height: 1.2;
-      white-space: nowrap;
-    }
-
-    .brand span {
-      color: var(--gold);
-    }
-
-    .nav-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 10px 18px;
-      border: 1px solid var(--green);
-      border-radius: 100px;
-      color: var(--green);
-      font-size: 0.88rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      text-decoration: none;
-      transition: background 0.2s ease, color 0.2s ease;
+      text-transform: capitalize;
     }
 
-    .nav-link:hover {
-      background: var(--green);
-      color: white;
+    .calendar-nav {
+      display: flex;
+      gap: 8px;
     }
 
-    /* ÚVOD */
+    .calendar-nav button {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: var(--cream);
+      color: var(--green);
+      font: inherit;
+      cursor: pointer;
+    }
 
-    .hero {
-      padding: 38px 0 82px;
+    .calendar-nav button:hover {
+      background: var(--green-light);
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .calendar-weekday {
+      padding: 5px 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 700;
       text-align: center;
     }
 
-    .logo {
-      display: block;
-      width: min(100%, 570px);
-      margin: 0 auto 32px;
-      border-radius: 24px;
+    .calendar-day {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      border-radius: 9px;
+      font-size: 0.88rem;
+      color: var(--text);
       background: #f5f1e7;
-      box-shadow: 0 8px 24px rgba(37, 71, 53, 0.06);
     }
 
-    .eyebrow {
-      margin: 0 0 14px;
-      color: var(--gold);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 2.2px;
-      text-transform: uppercase;
+    .calendar-day.is-empty {
+      background: transparent;
     }
 
-    h1,
-    h2,
-    h3,
-    p {
-      overflow-wrap: break-word;
+    .calendar-day.is-past {
+      color: #b6b8b2;
+      background: transparent;
     }
 
-    h1 {
-      margin: 0 0 22px;
+    .calendar-day.is-available {
+      background: var(--green-light);
       color: var(--green);
-      font-size: clamp(2.5rem, 5.4vw, 4.2rem);
       font-weight: 700;
-      letter-spacing: -2px;
-      line-height: 1.1;
     }
 
-    .intro p {
-      max-width: 650px;
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: 1.12rem;
-      line-height: 1.85;
+    .calendar-day.is-booked {
+      background: #eadfd3;
+      color: #72513b;
+      text-decoration: line-through;
     }
 
-    .actions {
+    .calendar-legend {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       justify-content: center;
-      gap: 14px;
-      margin-top: 30px;
+      gap: 12px 18px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
     }
 
-    .button {
+    .legend-item {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      padding: 14px 24px;
-      border: 1px solid var(--green);
-      border-radius: 100px;
-      background: var(--green);
-      color: white;
-      font-family: inherit;
-      font-size: 0.94rem;
-      font-weight: 700;
-      line-height: 1.35;
-      text-align: center;
-      text-decoration: none;
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s ease;
+      gap: 7px;
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-      background: var(--green-dark);
-    }
-
-    .button-secondary {
-      background: transparent;
-      color: var(--green);
-    }
-
-    .button-secondary:hover {
-      background: var(--green-light);
-      color: var(--green);
-    }
-
-    /* OBSAHOVÉ SEKCE */
-
-    section {
-      padding: 78px 0;
-    }
-
-    .section-head {
-      max-width: 720px;
-      margin: 0 auto 38px;
-      text-align: center;
-    }
-
-    .section-head h2 {
-      margin: 0 0 16px;
-      color: var(--green);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      letter-spacing: -1.2px;
-      line-height: 1.2;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.8;
-    }
-
-    /* TŘI KARTY */
-
-    .possibilities {
-      background: var(--paper);
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      min-width: 0;
-      padding: 30px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: var(--paper);
-      box-shadow: var(--shadow);
-    }
-
-    .card-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 43px;
-      height: 43px;
-      margin-bottom: 18px;
-      border-radius: 50%;
-      background: var(--green-light);
-      color: var(--green);
-      font-size: 0.9rem;
-      font-weight: 800;
-    }
-
-    .card h3 {
-      margin: 0 0 12px;
-      color: var(--green);
-      font-size: 1.22rem;
-      font-weight: 700;
-      line-height: 1.35;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.8;
-    }
-
-    /* ZELENÁ SEKCE */
-
-    .green-section {
-      background: var(--green);
-      color: white;
-      text-align: center;
-    }
-
-    .green-section .wrap {
-      max-width: 850px;
-    }
-
-    .green-section .eyebrow {
-      color: #d8bd80;
-    }
-
-    .green-section h2 {
-      margin: 0 0 22px;
-      color: white;
-      font-size: clamp(2rem, 4.5vw, 3.3rem);
-      font-weight: 700;
-      letter-spacing: -1.2px;
-      line-height: 1.2;
-    }
-
-    .green-section p {
-      max-width: 700px;
-      margin: 0 auto;
-      color: rgba(255, 255, 255, 0.84);
-      font-size: 1.05rem;
-      line-height: 1.9;
-    }
-
-    .green-section .button {
-      margin-top: 28px;
-      border-color: var(--cream);
-      background: var(--cream);
-      color: var(--green);
-    }
-
-    .green-section .button:hover {
-      background: white;
-    }
-
-    /* O MNĚ */
-
-    .about {
-      display: grid;
-      grid-template-columns: minmax(200px, 250px) minmax(0, 1fr);
-      align-items: center;
-      gap: 48px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .portrait {
-      width: 100%;
-      max-width: 250px;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      object-position: center top;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      box-shadow: var(--shadow);
-    }
-
-    .about-copy {
-      min-width: 0;
-    }
-
-    .about-copy .eyebrow {
-      margin-bottom: 10px;
-    }
-
-    .about-copy h2 {
-      margin: 0 0 18px;
-      color: var(--green);
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      letter-spacing: -1px;
-      line-height: 1.2;
-    }
-
-    .about-copy p {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.9;
-    }
-
-    .signature {
-      margin-top: 22px;
-      color: var(--green);
-      font-weight: 700;
-    }
-
-    .signature span {
-      color: var(--gold);
-    }
-
-    /* REZERVACE KOUČINKU */
-
-    .booking-section {
-      background: var(--paper);
-    }
-
-    .booking-frame {
-      display: block;
-      width: 100%;
-      height: 760px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: white;
-      box-shadow: var(--shadow);
-    }
-
-    .booking-note {
-      max-width: 680px;
-      margin: -12px auto 30px;
-      color: var(--muted);
-      text-align: center;
-      line-height: 1.8;
-    }
-
-    /* KONTAKT */
-
-    .contact {
-      background: var(--paper);
-    }
-
-    .contact-inner {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .contact .section-head {
-      margin-bottom: 28px;
-    }
-
-    .contact-email {
+    .legend-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 4px;
       display: inline-block;
-      max-width: 100%;
-      margin: 0 auto;
-      color: var(--green);
-      font-size: clamp(1rem, 3vw, 1.3rem);
-      font-weight: 700;
-      text-decoration: none;
-      overflow-wrap: anywhere;
     }
 
-    .contact-email:hover {
-      text-decoration: underline;
-      text-decoration-color: var(--gold);
-      text-underline-offset: 5px;
-    }
+    .legend-dot.available { background: var(--green-light); border: 1px solid #cbd8c9; }
+    .legend-dot.booked { background: #eadfd3; border: 1px solid #dfcbb9; }
 
-    .contact-note {
-      max-width: 520px;
-      margin: 18px auto 0;
+    .availability-note {
+      margin: 16px 0 0;
       color: var(--muted);
-      font-size: 0.94rem;
-      line-height: 1.8;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      text-align: center;
     }
 
-    .contact .button {
-      margin-top: 26px;
-    }
-
-    /* PATIČKA */
-
-    .site-footer {
-      padding: 24px 0;
-      background: var(--green-dark);
-      color: rgba(255, 255, 255, 0.78);
-      font-size: 0.83rem;
-    }
-
-    .footer-inner {
+    .availability-action {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+      justify-content: center;
+      margin-top: 20px;
     }
-
-    .footer-inner p {
-      margin: 0;
-    }
-
-    .footer-brand {
-      color: white;
-      font-weight: 700;
-    }
-
-    /* TABLETY */
-
-    @media (max-width: 850px) {
-      .wrap {
-        width: calc(100% - 40px);
-      }
-
-      .hero {
-        padding: 32px 0 64px;
-      }
-
-      section {
-        padding: 64px 0;
-      }
-
-      .cards {
-        gap: 14px;
-      }
-
-      .card {
-        padding: 24px;
-      }
-
-      .about {
-        grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
-        gap: 30px;
-      }
-    }
-
-    /* MOBILY */
 
     @media (max-width: 700px) {
-      html {
-        scroll-padding-top: 72px;
-      }
-
-      .wrap {
-        width: calc(100% - 36px);
-      }
-
-      .nav {
-        min-height: 64px;
-        gap: 12px;
-      }
-
-      .brand {
-        font-size: 1rem;
-        letter-spacing: -0.5px;
-      }
-
-      .nav-link {
-        min-height: 40px;
-        padding: 8px 12px;
-        font-size: 0.78rem;
-        text-align: center;
-      }
-
-      .hero {
-        padding: 24px 0 46px;
-      }
-
-      .logo {
-        width: 100%;
-        max-width: 480px;
-        margin: 0 auto 25px;
-      }
-
-      .intro {
-        text-align: left;
-      }
-
-      .eyebrow {
-        font-size: 0.72rem;
-        letter-spacing: 1.5px;
-      }
-
-      h1 {
-        font-size: clamp(2rem, 8vw, 2.7rem);
-        line-height: 1.12;
-        letter-spacing: -1px;
-        margin: 12px 0 16px;
-      }
-
-      .intro p {
-        font-size: 1rem;
-        line-height: 1.75;
-      }
-
-      .actions {
-        align-items: stretch;
-        justify-content: flex-start;
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 22px;
-      }
-
-      .actions .button {
-        width: 100%;
-        min-height: 48px;
-        padding: 12px 16px;
-      }
-
-      section {
-        padding: 46px 0;
-      }
-
-      .section-head {
-        margin-bottom: 25px;
-        text-align: left;
-      }
-
-      .section-head h2 {
-        font-size: clamp(1.8rem, 7vw, 2.3rem);
-        line-height: 1.2;
-        letter-spacing: -0.7px;
-      }
-
-      .section-head p {
-        font-size: 0.96rem;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-        gap: 13px;
-      }
-
-      .card {
-        padding: 22px;
-        border-radius: 13px;
-      }
-
-      .card-number {
-        width: 39px;
-        height: 39px;
-        margin-bottom: 13px;
-      }
-
-      .card h3 {
-        font-size: 1.15rem;
-      }
-
-      .card p {
-        font-size: 0.94rem;
-      }
-
-      .green-section {
-        text-align: left;
-      }
-
-      .green-section h2 {
-        font-size: clamp(1.9rem, 7vw, 2.4rem);
-        line-height: 1.2;
-      }
-
-      .green-section p {
-        font-size: 0.98rem;
-        line-height: 1.8;
-      }
-
-      .green-section .button {
-        width: 100%;
-      }
-
-      .about {
-        grid-template-columns: 1fr;
-        justify-items: start;
-        gap: 23px;
-      }
-
-      .portrait {
-        width: min(100%, 240px);
-        max-width: 240px;
-        aspect-ratio: 4 / 5;
-        object-fit: cover;
-        object-position: center top;
-      }
-
-      .about-copy h2 {
-        font-size: 2.15rem;
-      }
-
-      .about-copy p {
-        font-size: 0.97rem;
-        line-height: 1.8;
-      }
-
-      .booking-frame {
-        height: 850px;
-        border-radius: 12px;
-      }
-
-      .booking-note {
-        margin-top: -5px;
-        text-align: left;
-      }
-
-      .contact .section-head {
-        margin-bottom: 22px;
-      }
-
-      .contact-inner {
-        text-align: left;
-      }
-
-      .contact .section-head {
-        text-align: left;
-      }
-
-      .contact .button {
-        width: 100%;
-      }
-
-      .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 7px;
-      }
+      .availability-panel { padding: 18px 14px; }
+      .calendar-grid { gap: 4px; }
+      .calendar-day { min-height: 35px; font-size: 0.82rem; }
     }
-
-    /* MENŠÍ TELEFONY */
-
-    @media (max-width: 380px) {
-      .wrap {
-        width: calc(100% - 30px);
-      }
-
-      .brand {
-        font-size: 0.88rem;
-      }
-
-      .nav-link {
-        padding: 8px 9px;
-        font-size: 0.7rem;
-      }
-
-      .logo {
-        margin-bottom: 20px;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      .actions .button {
-        font-size: 0.9rem;
-      }
-    }
-
-    /* OMEZENÍ ANIMACÍ */
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <header class="site-header">
-    <div class="wrap nav">
-      <a class="brand" href="#domu" aria-label="MÁŠ SE(BE) – úvod">
-        MÁŠ SE<span>(BE)</span>?
-      </a>
-
-      <a class="nav-link" href="#rezervace">
-        Domluvit setkání ↗
-      </a>
-    </div>
-  </header>
-
-  <main>
-
-    <!-- ÚVODNÍ SEKCE -->
-
-    <section class="hero" id="domu">
+'''
+s=s.replace('    /* KONTAKT */', css_insert+'\n    /* KONTAKT */', 1)
+html_insert = r'''
+    <!-- MALÝ KALENDÁŘ DOSTUPNOSTI -->
+    <section class="availability-section" id="terminy">
       <div class="wrap">
-
-        <img
-          class="logo"
-          src="logo.png"
-          alt="MÁŠ SE(BE)? Dovol si představit ti tebe."
-          width="570"
-          fetchpriority="high"
-        >
-
-        <div class="intro">
-          <p class="eyebrow">Prostor pro tebe</p>
-
-          <h1>Někdy nepotřebuješ radu. Potřebuješ jiný pohled.</h1>
-
-          <p>
-            Někdy se v životě zastavíme na místě, přestože se snažíme
-            jít dál. Možná nepotřebuješ další návod ani někoho, kdo ti
-            řekne, co máš dělat. Možná potřebuješ prostor, ve kterém
-            si ujasníš, co je důležité právě pro tebe.
-          </p>
-
-          <div class="actions">
-            <a class="button" href="#rezervace">
-              Pojďme si promluvit
-            </a>
-
-            <a class="button button-secondary" href="#koucink">
-              Co je koučink?
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- S ČÍM MŮŽE KOUČINK POMOCI -->
-
-    <section class="possibilities" id="koucink">
-      <div class="wrap">
-
         <div class="section-head">
-          <p class="eyebrow">Možná právě tohle hledáš</p>
-
-          <h2>Nemusíš mít všechno vyřešené.</h2>
-
-          <p>
-            Stačí začít tam, kde právě jsi. Nemusíš mít připravené
-            správné otázky ani přesně vědět, co chceš změnit.
-          </p>
+          <p class="eyebrow">Najdi si svůj čas</p>
+          <h2>Kdy se můžeme potkat?</h2>
+          <p>Podívej se na orientační přehled termínů a potom si vyber přesný čas v rezervačním kalendáři.</p>
         </div>
 
-        <div class="cards">
-
-          <article class="card">
-            <div class="card-number" aria-hidden="true">01</div>
-            <h3>Zastavení</h3>
-            <p>
-              Když je toho příliš a potřebuješ se na chvíli zastavit.
-              Věnovat pozornost sobě, svým potřebám a tomu, co ti
-              v každodenním shonu možná uniká.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-number" aria-hidden="true">02</div>
-            <h3>Nadhled</h3>
-            <p>
-              Když se točíš v kruhu a stále řešíš stejné věci.
-              Společný rozhovor ti může pomoci podívat se na situaci
-              z jiné perspektivy a objevit nové možnosti.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-number" aria-hidden="true">03</div>
-            <h3>Vlastní směr</h3>
-            <p>
-              Když cítíš, že chceš něco jinak, ale ještě nevíš co.
-              Prozkoumáš, na čem ti záleží, a najdeš další krok,
-              který dává smysl tobě.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- HLAVNÍ MYŠLENKA -->
-
-    <section class="green-section">
-      <div class="wrap">
-
-        <p class="eyebrow">Tvůj prostor</p>
-
-        <h2>Tvůj život. Tvoje otázky. Tvoje odpovědi.</h2>
-
-        <p>
-          Koučink není o tom, že ti někdo řekne, jak máš žít.
-          Je to rozhovor, ve kterém můžeš přemýšlet nahlas,
-          hledat souvislosti a objevovat vlastní možnosti.
-          Bez hotových návodů. Bez hodnocení. S pozorností
-          věnovanou tomu, co potřebuješ právě ty.
-        </p>
-
-        <a class="button" href="#kontakt">
-          Chci se dozvědět víc
-        </a>
-
-      </div>
-    </section>
-
-    <!-- O DANIELOVI -->
-
-    <section id="o-mne">
-      <div class="wrap">
-
-        <div class="about">
-
-          <img
-            class="portrait"
-            src="daniel-verner.png"
-            alt="Daniel Verner"
-            width="250"
-            loading="lazy"
-          >
-
-          <div class="about-copy">
-            <p class="eyebrow">Kdo tě bude provázet</p>
-
-            <h2>Jsem Daniel.</h2>
-
-            <p>
-              Věřím, že někdy nepotřebujeme, aby nám někdo radil.
-              Potřebujeme, aby nám někdo opravdu naslouchal
-              a pomohl nám podívat se na věci jinak.
-            </p>
-
-            <p>
-              I proto jsem se rozhodl věnovat koučinku. Zajímá mě,
-              co lidé prožívají, co je brzdí a co se může změnit,
-              když dostanou prostor přemýšlet po svém.
-            </p>
-
-            <p>
-              Nechci ti říkat, jak máš žít. Chci ti nabídnout
-              prostor, ve kterém můžeš hledat vlastní odpovědi.
-            </p>
-
-            <div class="signature">
-              Daniel Verner <span>|</span> kouč
+        <div class="availability-panel">
+          <div class="availability-calendar">
+            <div class="calendar-top">
+              <h3 class="calendar-month" id="calendar-month" aria-live="polite"></h3>
+              <div class="calendar-nav">
+                <button type="button" id="calendar-prev" aria-label="Předchozí měsíc">‹</button>
+                <button type="button" id="calendar-next" aria-label="Další měsíc">›</button>
+              </div>
+            </div>
+            <div class="calendar-grid" id="calendar-grid" aria-label="Kalendář dostupnosti"></div>
+            <div class="calendar-legend">
+              <span class="legend-item"><span class="legend-dot available"></span>Volno</span>
+              <span class="legend-item"><span class="legend-dot booked"></span>Obsazeno</span>
+            </div>
+            <p class="availability-note">Přehled je orientační. Aktuální dostupnost a přesný čas si ověříš při rezervaci.</p>
+            <div class="availability-action">
+              <a class="button" href="https://calendar.app.google/NJ7az3mU5WE9Zf3MA" target="_blank" rel="noopener noreferrer">Vybrat přesný termín ↗</a>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- REZERVACE KOUČINKU -->
+'''
+s=s.replace('    <!-- KONTAKT -->', html_insert+'    <!-- KONTAKT -->', 1)
+js_insert = r'''
+    // Kalendář: dostupné a obsazené dny nastavuj ve formátu YYYY-MM-DD.
+    // Dny neuvedené v seznamu zůstávají neutrální, aby web nesliboval neověřenou dostupnost.
+    const availableDates = [];
+    const bookedDates = [];
 
-    <section class="booking-section" id="rezervace">
-      <div class="wrap">
+    const monthLabel = document.getElementById("calendar-month");
+    const calendarGrid = document.getElementById("calendar-grid");
+    const previousMonthButton = document.getElementById("calendar-prev");
+    const nextMonthButton = document.getElementById("calendar-next");
+    const calendarToday = new Date();
+    calendarToday.setHours(0, 0, 0, 0);
+    let shownMonth = new Date(calendarToday.getFullYear(), calendarToday.getMonth(), 1);
 
-        <div class="section-head">
-          <p class="eyebrow">První krok nemusí být velký</p>
-          <h2>Domluvíme si setkání?</h2>
-        </div>
+    const weekdayLabels = ["Po", "Út", "St", "Čt", "Pá", "So", "Ne"];
+    const monthFormatter = new Intl.DateTimeFormat("cs-CZ", { month: "long", year: "numeric" });
 
-        <p class="booking-note">
-          Vyber si termín, který ti vyhovuje. Rezervaci dokončíš přímo v kalendáři.
-        </p>
+    function renderAvailabilityCalendar() {
+      monthLabel.textContent = monthFormatter.format(shownMonth);
+      calendarGrid.replaceChildren();
 
-        <iframe
-          class="booking-frame"
-          src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2t1njcA7_BcwVnV3CCzaMYDoIGEIkULtYRBYOaAvWPoI3a5E4cVCI9ZxCtAxE2xUfH1WIM6PET?gv=true"
-          title="Rezervace úvodního koučovacího setkání – MÁŠ SE(BE)?"
-          loading="lazy"
-          frameborder="0">
-        </iframe>
+      weekdayLabels.forEach((label) => {
+        const weekday = document.createElement("div");
+        weekday.className = "calendar-weekday";
+        weekday.textContent = label;
+        calendarGrid.appendChild(weekday);
+      });
 
-      </div>
-    </section>
+      const year = shownMonth.getFullYear();
+      const month = shownMonth.getMonth();
+      const firstWeekday = (new Date(year, month, 1).getDay() + 6) % 7;
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-    <!-- KONTAKT -->
+      for (let i = 0; i < firstWeekday; i++) {
+        const blank = document.createElement("div");
+        blank.className = "calendar-day is-empty";
+        blank.setAttribute("aria-hidden", "true");
+        calendarGrid.appendChild(blank);
+      }
 
-    <section class="contact" id="kontakt">
-      <div class="wrap">
+      for (let day = 1; day <= daysInMonth; day++) {
+        const date = new Date(year, month, day);
+        const dateKey = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+        const cell = document.createElement("div");
+        cell.className = "calendar-day";
+        cell.textContent = day;
 
-        <div class="contact-inner">
+        if (date < calendarToday) {
+          cell.classList.add("is-past");
+          cell.setAttribute("aria-label", `${day}. ${month + 1}. – minulý den`);
+        } else if (bookedDates.includes(dateKey)) {
+          cell.classList.add("is-booked");
+          cell.setAttribute("aria-label", `${day}. ${month + 1}. – obsazeno`);
+        } else if (availableDates.includes(dateKey)) {
+          cell.classList.add("is-available");
+          cell.setAttribute("aria-label", `${day}. ${month + 1}. – volno`);
+        } else {
+          cell.setAttribute("aria-label", `${day}. ${month + 1}. – dostupnost ověř v rezervačním kalendáři`);
+        }
+        calendarGrid.appendChild(cell);
+      }
 
-          <div class="section-head">
-            <p class="eyebrow">První krok nemusí být velký</p>
+      previousMonthButton.disabled =
+        shownMonth.getFullYear() === calendarToday.getFullYear() &&
+        shownMonth.getMonth() === calendarToday.getMonth();
+      previousMonthButton.style.opacity = previousMonthButton.disabled ? "0.4" : "1";
+      previousMonthButton.style.cursor = previousMonthButton.disabled ? "default" : "pointer";
+    }
 
-            <h2>Začneme rozhovorem?</h2>
+    previousMonthButton.addEventListener("click", () => {
+      if (previousMonthButton.disabled) return;
+      shownMonth = new Date(shownMonth.getFullYear(), shownMonth.getMonth() - 1, 1);
+      renderAvailabilityCalendar();
+    });
 
-            <p>
-              Nemusíš mít všechno promyšlené. Napiš mi pár slov
-              o tom, co právě řešíš, nebo se ozvi jen proto,
-              abychom zjistili, jestli ti koučink dává smysl.
-            </p>
-          </div>
+    nextMonthButton.addEventListener("click", () => {
+      shownMonth = new Date(shownMonth.getFullYear(), shownMonth.getMonth() + 1, 1);
+      renderAvailabilityCalendar();
+    });
 
-          <a
-            class="contact-email"
-            href="mailto:massebe.cz@gmail.com?subject=Kou%C4%8Dink%20%E2%80%93%20M%C3%81%C5%A0%20SE(BE)"
-          >
-            massebe.cz@gmail.com
-          </a>
-
-          <p class="contact-note">
-            První zpráva tě k ničemu nezavazuje.
-            Můžeme si nejprve ujasnit, co potřebuješ
-            a zda je koučink pro tebe vhodnou cestou.
-          </p>
-
-          <a
-            class="button"
-            href="mailto:massebe.cz@gmail.com?subject=Kou%C4%8Dink%20%E2%80%93%20M%C3%81%C5%A0%20SE(BE)"
-          >
-            Napsat Danielovi ↗
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- PATIČKA -->
-
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-
-      <p class="footer-brand">MÁŠ SE(BE)?</p>
-      <p>Daniel Verner | kouč</p>
-      <p>© <span id="year">2026</span> Všechna práva vyhrazena.</p>
-
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
-
-</body>
-</html>
+    renderAvailabilityCalendar();
+'''
+s=s.replace('  <script>\n    document.getElementById("year").textContent =\n      new Date().getFullYear();\n  </script>', '  <script>\n    document.getElementById("year").textContent =\n      new Date().getFullYear();\n\n'+js_insert+'  </script>', 1)
+out=Path('/mnt/data/index-puvodni-s-malym-kalendarem.html')
+out.write_text(s)
+len(s), len(s.splitlines()), len(s.splitlines()), len(out.read_text().splitlines())
