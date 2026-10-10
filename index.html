@@ -129,6 +129,28 @@
       color: white;
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .nav-link-booking {
+      background: var(--green);
+      color: white;
+    }
+
+    .nav-link-booking:hover {
+      background: var(--green-dark);
+      color: white;
+    }
+
+    .nav-link-message {
+      background: transparent;
+      color: var(--green);
+    }
+
     /* ÚVOD */
 
     .hero {
@@ -474,6 +496,7 @@
       grid-template-columns: minmax(190px, 0.8fr) minmax(0, 1.2fr);
       column-gap: 34px;
       align-items: center;
+      row-gap: 0;
     }
 
     .calendar-heading {
@@ -541,14 +564,15 @@
       grid-row: 2 / span 2;
       display: grid;
       grid-template-columns: repeat(7, minmax(0, 1fr));
-      gap: 7px;
+      column-gap: 7px;
+      row-gap: 2px;
       text-align: center;
     }
 
     .calendar-weekday {
-      padding: 5px 0;
+      padding: 3px 0 5px;
       color: var(--muted);
-      font-size: 0.7rem;
+      font-size: 0.82rem;
       font-weight: 700;
     }
 
@@ -558,7 +582,7 @@
       align-items: center;
       justify-content: center;
       min-width: 0;
-      aspect-ratio: 1;
+      height: 38px;
     }
 
     .calendar-day {
@@ -618,7 +642,14 @@
       }
 
       .calendar-grid {
-        gap: 4px;
+        column-gap: 4px;
+        row-gap: 4px;
+      }
+
+      .calendar-day,
+      .calendar-empty {
+        height: auto;
+        aspect-ratio: 1;
       }
 
       .calendar-footnote {
@@ -703,11 +734,16 @@
         letter-spacing: -0.5px;
       }
 
+      .nav-actions {
+        gap: 7px;
+      }
+
       .nav-link {
         min-height: 40px;
-        padding: 8px 12px;
-        font-size: 0.78rem;
+        padding: 8px 10px;
+        font-size: 0.74rem;
         text-align: center;
+        white-space: nowrap;
       }
 
       .hero {
@@ -873,9 +909,13 @@
         font-size: 0.88rem;
       }
 
+      .nav-actions {
+        gap: 5px;
+      }
+
       .nav-link {
-        padding: 8px 9px;
-        font-size: 0.7rem;
+        padding: 7px 8px;
+        font-size: 0.64rem;
       }
 
       .logo {
@@ -916,9 +956,14 @@
         MÁŠ SE<span>(BE)</span>?
       </a>
 
-      <a class="nav-link" href="#kontakt">
-        Domluvit setkání ↗
-      </a>
+      <div class="nav-actions">
+        <a class="nav-link nav-link-booking" href="#orientacni-kalendar">
+          Rezervovat termín
+        </a>
+        <a class="nav-link nav-link-message" href="#kontakt">
+          Napsat zprávu
+        </a>
+      </div>
     </div>
   </header>
 
@@ -1092,7 +1137,7 @@
 
 
     <!-- MALÝ ORIENTAČNÍ KALENDÁŘ -->
-    <section class="calendar-section" aria-labelledby="calendar-heading">
+    <section class="calendar-section" id="orientacni-kalendar" aria-labelledby="calendar-heading">
       <div class="wrap">
         <div class="calendar-inner">
           <h2 class="calendar-heading" id="calendar-heading">Kdy se můžeme potkat?</h2>
