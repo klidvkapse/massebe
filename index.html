@@ -214,9 +214,16 @@
       grid-template-columns: 150px 1fr;
       gap: 36px;
       align-items: start;
-    }
-
-    .monogram {
+      .portrait {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 10px;
+}
+      .monogram {
       display: grid;
       place-items: center;
       min-height: 150px;
@@ -273,7 +280,10 @@
       .about { grid-template-columns: 1fr; gap: 22px; }
       .monogram { min-height: 100px; width: 100px; }
       .footer-inner { flex-direction: column; }
-    }
+      .portrait {
+  max-width: 220px;
+}
+   
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -360,7 +370,7 @@
 
     <section>
       <div class="wrap about">
-        <div class="monogram" aria-hidden="true">DV</div>
+        <img class="portrait" src="daniel-verner.png" alt="Daniel Verner, osobní kouč">
         <div>
           <div class="eyebrow">Kdo tě rozhovorem provede</div>
           <h2>Jsem Daniel.</h2>
