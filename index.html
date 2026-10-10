@@ -3,51 +3,93 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#254735">
-  <meta name="description" content="MÁŠ SE(BE)? Osobní koučink s Danielem Vernerem. Zastav se, získej nadhled a najdi vlastní směr.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>MÁŠ SE(BE)? | Daniel Verner – kouč</title>
+
+  <meta name="description" content="Někdy nepotřebuješ radu. Potřebuješ jiný pohled. Osobní koučink s Danielem Vernerem. Dovol si představit ti tebe.">
+
+  <meta name="author" content="Daniel Verner">
+  <meta name="theme-color" content="#f5f1e7">
+
+  <meta property="og:title" content="MÁŠ SE(BE)? – Daniel Verner, kouč">
+  <meta property="og:description" content="Dovol si představit ti tebe. Prostor pro zastavení, nadhled a vlastní směr.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://massebe.cz/">
+
+  <link rel="canonical" href="https://massebe.cz/">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --green: #254735;
       --green-dark: #1b3527;
+      --green-light: #e8eee7;
       --cream: #f5f1e7;
       --paper: #fffdf8;
       --gold: #b18a43;
-      --text: #303a32;
-      --muted: #647067;
-      --line: #e4e1d6;
+      --text: #28342d;
+      --muted: #68736b;
+      --border: #e5dfd2;
+      --shadow: 0 12px 35px rgba(27, 53, 39, 0.07);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
 
     body {
       margin: 0;
-      background: var(--paper);
+      background: var(--cream);
       color: var(--text);
-      font-family: 'Raleway', sans-serif;
+      font-family: "Raleway", sans-serif;
+      font-size: 16px;
       line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
 
-    a { color: inherit; }
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
 
     .wrap {
-      width: min(1080px, calc(100% - 40px));
+      width: min(1080px, calc(100% - 48px));
       margin-inline: auto;
     }
 
-    header {
-      background: var(--cream);
-      border-bottom: 1px solid var(--line);
+    /* HLAVIČKA */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(245, 241, 231, 0.96);
+      border-bottom: 1px solid rgba(37, 71, 53, 0.09);
+      backdrop-filter: blur(12px);
     }
 
     .nav {
-      min-height: 74px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -56,372 +98,884 @@
 
     .brand {
       color: var(--green);
-      font-weight: 800;
-      font-size: 1.2rem;
       text-decoration: none;
-      letter-spacing: -.6px;
+      font-size: 1.13rem;
+      font-weight: 800;
+      letter-spacing: -0.7px;
+      line-height: 1.2;
+      white-space: nowrap;
     }
 
-    .brand span { color: var(--gold); }
+    .brand span {
+      color: var(--gold);
+    }
 
     .nav-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 18px;
+      border: 1px solid var(--green);
+      border-radius: 100px;
+      color: var(--green);
+      font-size: 0.88rem;
       font-weight: 700;
-      font-size: .9rem;
       text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
     }
+
+    .nav-link:hover {
+      background: var(--green);
+      color: white;
+    }
+
+    /* ÚVOD */
 
     .hero {
-      background: var(--cream);
-      padding: 48px 0 76px;
-    }
-
-    .logo {
-      display: block;
-      width: 100%;
-      max-width: 980px;
-      height: auto;
-      margin: 0 auto 34px;
-    }
-
-    .intro {
-      max-width: 720px;
-      margin: 0 auto;
+      padding: 38px 0 82px;
       text-align: center;
     }
 
+    .logo {
+      width: min(100%, 570px);
+      margin: 0 auto 32px;
+      border-radius: 4px;
+    }
+
+    .intro {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
     .eyebrow {
+      margin: 0 0 14px;
       color: var(--gold);
-      font-size: .78rem;
+      font-size: 0.78rem;
       font-weight: 800;
-      letter-spacing: 2px;
+      letter-spacing: 2.2px;
       text-transform: uppercase;
     }
 
-    h1, h2, h3 {
-      color: var(--green);
-      line-height: 1.2;
+    h1,
+    h2,
+    h3,
+    p {
+      overflow-wrap: break-word;
     }
 
     h1 {
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      letter-spacing: -1.5px;
-      margin: 14px 0 18px;
+      margin: 0 0 22px;
+      color: var(--green);
+      font-size: clamp(2.5rem, 5.4vw, 4.2rem);
+      font-weight: 700;
+      letter-spacing: -2px;
+      line-height: 1.1;
     }
 
     .intro p {
-      color: #536056;
-      font-size: 1.08rem;
       max-width: 650px;
       margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.12rem;
+      line-height: 1.85;
     }
 
     .actions {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 30px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 49px;
-      padding: 12px 22px;
-      border-radius: 5px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: background .2s, transform .2s;
-    }
-
-    .button:hover { transform: translateY(-2px); }
-
-    .primary {
-      color: white;
+      min-height: 52px;
+      padding: 14px 24px;
+      border: 1px solid var(--green);
+      border-radius: 100px;
       background: var(--green);
+      color: white;
+      font-family: inherit;
+      font-size: 0.94rem;
+      font-weight: 700;
+      line-height: 1.35;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
     }
 
-    .primary:hover { background: var(--green-dark); }
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--green-dark);
+    }
 
-    .secondary {
+    .button-secondary {
+      background: transparent;
       color: var(--green);
-      border: 1px solid #aab6aa;
     }
 
-    section { padding: 76px 0; }
+    .button-secondary:hover {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    /* OBSAHOVÉ SEKCE */
+
+    section {
+      padding: 78px 0;
+    }
 
     .section-head {
       max-width: 720px;
-      margin-bottom: 34px;
+      margin: 0 auto 38px;
+      text-align: center;
     }
 
-    h2 {
-      font-size: clamp(1.9rem, 4vw, 2.8rem);
-      letter-spacing: -1px;
-      margin: 12px 0 18px;
+    .section-head h2 {
+      margin: 0 0 16px;
+      color: var(--green);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -1.2px;
+      line-height: 1.2;
     }
 
-    .section-head p, .card p, .about p {
+    .section-head p {
+      margin: 0;
       color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    /* TŘI KARTY */
+
+    .possibilities {
+      background: var(--paper);
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
     }
 
     .card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 26px;
+      min-width: 0;
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
     }
 
-    .number {
-      color: var(--gold);
+    .card-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 43px;
+      height: 43px;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 0.9rem;
       font-weight: 800;
-      letter-spacing: 1px;
-      font-size: .85rem;
     }
 
-    h3 { margin: 12px 0 8px; }
+    .card h3 {
+      margin: 0 0 12px;
+      color: var(--green);
+      font-size: 1.22rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.8;
+    }
+
+    /* ZELENÁ SEKCE */
 
     .green-section {
       background: var(--green);
-      color: var(--cream);
-    }
-
-    .green-section h2 { color: var(--cream); }
-
-    .green-section .eyebrow { color: #dfc68f; }
-
-    .green-section p {
-      max-width: 740px;
-      color: #e2e9e1;
-      font-size: 1.08rem;
-    }
-
-    .green-section .button {
-      margin-top: 12px;
-      background: var(--cream);
-      color: var(--green);
-    }
-
-    .about {
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 36px;
-      align-items: start;
-      .portrait {
-  display: block;
-  width: 100%;
-  max-width: 280px;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 10px;
-}
-      .monogram {
-      display: grid;
-      place-items: center;
-      min-height: 150px;
-      border-radius: 50%;
-      background: var(--cream);
-      color: var(--green);
-      font-size: 2.4rem;
-      font-weight: 800;
-    }
-
-    .contact {
-      background: var(--cream);
+      color: white;
       text-align: center;
     }
 
-    .contact .section-head {
-      margin-inline: auto;
+    .green-section .wrap {
+      max-width: 850px;
     }
 
-    .email {
-      display: inline-block;
-      margin-top: 18px;
+    .green-section .eyebrow {
+      color: #d8bd80;
+    }
+
+    .green-section h2 {
+      margin: 0 0 22px;
+      color: white;
+      font-size: clamp(2rem, 4.5vw, 3.3rem);
+      font-weight: 700;
+      letter-spacing: -1.2px;
+      line-height: 1.2;
+    }
+
+    .green-section p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 1.05rem;
+      line-height: 1.9;
+    }
+
+    .green-section .button {
+      margin-top: 28px;
+      border-color: var(--cream);
+      background: var(--cream);
+      color: var(--green);
+    }
+
+    .green-section .button:hover {
+      background: white;
+    }
+
+    /* O MNĚ */
+
+    .about {
+      display: grid;
+      grid-template-columns: minmax(200px, 250px) minmax(0, 1fr);
+      align-items: center;
+      gap: 48px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .portrait {
+      width: 100%;
+      max-width: 250px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-copy {
+      min-width: 0;
+    }
+
+    .about-copy .eyebrow {
+      margin-bottom: 10px;
+    }
+
+    .about-copy h2 {
+      margin: 0 0 18px;
+      color: var(--green);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      letter-spacing: -1px;
+      line-height: 1.2;
+    }
+
+    .about-copy p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.9;
+    }
+
+    .signature {
+      margin-top: 22px;
       color: var(--green);
       font-weight: 700;
     }
 
-    footer {
-      padding: 26px 0;
+    .signature span {
+      color: var(--gold);
+    }
+
+    /* KONTAKT */
+
+    .contact {
+      background: var(--paper);
+    }
+
+    .contact-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact .section-head {
+      margin-bottom: 28px;
+    }
+
+    .contact-email {
+      display: inline-block;
+      max-width: 100%;
+      margin: 0 auto;
+      color: var(--green);
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      font-weight: 700;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-email:hover {
+      text-decoration: underline;
+      text-decoration-color: var(--gold);
+      text-underline-offset: 5px;
+    }
+
+    .contact-note {
+      max-width: 520px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.8;
+    }
+
+    .contact .button {
+      margin-top: 26px;
+    }
+
+    /* PATIČKA */
+
+    .site-footer {
+      padding: 24px 0;
       background: var(--green-dark);
-      color: #e9eee8;
-      font-size: .85rem;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.83rem;
     }
 
     .footer-inner {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
+      gap: 16px;
     }
 
-    footer a { color: inherit; }
+    .footer-inner p {
+      margin: 0;
+    }
+
+    .footer-brand {
+      color: white;
+      font-weight: 700;
+    }
+
+    /* TABLETY */
+
+    @media (max-width: 850px) {
+      .wrap {
+        width: calc(100% - 40px);
+      }
+
+      .hero {
+        padding: 32px 0 64px;
+      }
+
+      section {
+        padding: 64px 0;
+      }
+
+      .cards {
+        gap: 14px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .about {
+        grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
+        gap: 30px;
+      }
+    }
+
+    /* MOBILY */
 
     @media (max-width: 700px) {
-      .wrap { width: calc(100% - 32px); }
-      .nav { min-height: 66px; }
-      .brand { font-size: 1.05rem; }
-      .nav-link { font-size: .82rem; }
-      .hero { padding: 28px 0 56px; }
-      .logo { margin-bottom: 28px; }
-      .intro p { font-size: 1rem; }
-      section { padding: 56px 0; }
-      .cards { grid-template-columns: 1fr; gap: 14px; }
-      .card { padding: 23px; }
-      .about { grid-template-columns: 1fr; gap: 22px; }
-      .monogram { min-height: 100px; width: 100px; }
-      .footer-inner { flex-direction: column; }
+      html {
+        scroll-padding-top: 72px;
+      }
+
+      .wrap {
+        width: calc(100% - 36px);
+      }
+
+      .nav {
+        min-height: 64px;
+        gap: 12px;
+      }
+
+      .brand {
+        font-size: 1rem;
+        letter-spacing: -0.5px;
+      }
+
+      .nav-link {
+        min-height: 40px;
+        padding: 8px 12px;
+        font-size: 0.78rem;
+        text-align: center;
+      }
+
+      .hero {
+        padding: 24px 0 46px;
+      }
+
+      .logo {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto 25px;
+      }
+
+      .intro {
+        text-align: left;
+      }
+
+      .eyebrow {
+        font-size: 0.72rem;
+        letter-spacing: 1.5px;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 8vw, 2.7rem);
+        line-height: 1.12;
+        letter-spacing: -1px;
+        margin: 12px 0 16px;
+      }
+
+      .intro p {
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+
+      .actions {
+        align-items: stretch;
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .actions .button {
+        width: 100%;
+        min-height: 48px;
+        padding: 12px 16px;
+      }
+
+      section {
+        padding: 46px 0;
+      }
+
+      .section-head {
+        margin-bottom: 25px;
+        text-align: left;
+      }
+
+      .section-head h2 {
+        font-size: clamp(1.8rem, 7vw, 2.3rem);
+        line-height: 1.2;
+        letter-spacing: -0.7px;
+      }
+
+      .section-head p {
+        font-size: 0.96rem;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+        gap: 13px;
+      }
+
+      .card {
+        padding: 22px;
+        border-radius: 13px;
+      }
+
+      .card-number {
+        width: 39px;
+        height: 39px;
+        margin-bottom: 13px;
+      }
+
+      .card h3 {
+        font-size: 1.15rem;
+      }
+
+      .card p {
+        font-size: 0.94rem;
+      }
+
+      .green-section {
+        text-align: left;
+      }
+
+      .green-section h2 {
+        font-size: clamp(1.9rem, 7vw, 2.4rem);
+        line-height: 1.2;
+      }
+
+      .green-section p {
+        font-size: 0.98rem;
+        line-height: 1.8;
+      }
+
+      .green-section .button {
+        width: 100%;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+        justify-items: start;
+        gap: 23px;
+      }
+
       .portrait {
-  max-width: 220px;
-}
-   
+        width: min(100%, 240px);
+        max-width: 240px;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        object-position: center top;
+      }
+
+      .about-copy h2 {
+        font-size: 2.15rem;
+      }
+
+      .about-copy p {
+        font-size: 0.97rem;
+        line-height: 1.8;
+      }
+
+      .contact .section-head {
+        margin-bottom: 22px;
+      }
+
+      .contact-inner {
+        text-align: left;
+      }
+
+      .contact .section-head {
+        text-align: left;
+      }
+
+      .contact .button {
+        width: 100%;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 7px;
+      }
+    }
+
+    /* MENŠÍ TELEFONY */
+
+    @media (max-width: 380px) {
+      .wrap {
+        width: calc(100% - 30px);
+      }
+
+      .brand {
+        font-size: 0.88rem;
+      }
+
+      .nav-link {
+        padding: 8px 9px;
+        font-size: 0.7rem;
+      }
+
+      .logo {
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .actions .button {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* OMEZENÍ ANIMACÍ PRO UŽIVATELE, KTEŘÍ JE NEPREFERUJÍ */
 
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; }
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header>
+
+  <header class="site-header">
     <div class="wrap nav">
-      <a class="brand" href="#domu">MÁŠ SE<span>(BE)</span>?</a>
-      <a class="nav-link" href="#kontakt">Domluvit setkání ↗</a>
+      <a class="brand" href="#domu" aria-label="MÁŠ SE(BE) – úvod">
+        MÁŠ SE<span>(BE)</span>?
+      </a>
+
+      <a class="nav-link" href="#kontakt">
+        Domluvit setkání ↗
+      </a>
     </div>
   </header>
 
-  <main id="domu">
-    <section class="hero">
+  <main>
+
+    <!-- ÚVODNÍ SEKCE -->
+
+    <section class="hero" id="domu">
       <div class="wrap">
-        <img class="logo" src="logo.png" alt="MÁŠ SE(BE)? – Daniel Verner, kouč. Dovol si představit ti tebe.">
+
+        <img
+          class="logo"
+          src="logo.png"
+          alt="MÁŠ SE(BE)? Dovol si představit ti tebe."
+          width="570"
+          fetchpriority="high"
+        >
 
         <div class="intro">
-          <div class="eyebrow">Osobní koučink · Daniel Verner</div>
+          <p class="eyebrow">Prostor pro tebe</p>
+
           <h1>Někdy nepotřebuješ radu. Potřebuješ jiný pohled.</h1>
+
           <p>
-            Práce, povinnosti, očekávání druhých… A kde jsi v tom všem ty?
-            Dopřej si prostor zastavit se, podívat se na svou situaci jinak
-            a najít vlastní odpovědi.
+            Někdy se v životě zastavíme na místě, přestože se snažíme
+            jít dál. Možná nepotřebuješ další návod ani někoho, kdo ti
+            řekne, co máš dělat. Možná potřebuješ prostor, ve kterém
+            si ujasníš, co je důležité právě pro tebe.
           </p>
+
           <div class="actions">
-            <a class="button primary" href="#kontakt">Domluvit úvodní setkání</a>
-            <a class="button secondary" href="#koucink">Jak funguje koučink?</a>
+            <a class="button" href="#kontakt">
+              Pojďme si promluvit
+            </a>
+
+            <a class="button button-secondary" href="#koucink">
+              Co je koučink?
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="koucink">
+    <!-- S ČÍM MŮŽE KOUČINK POMOCI -->
+
+    <section class="possibilities" id="koucink">
       <div class="wrap">
+
         <div class="section-head">
-          <div class="eyebrow">Prostor pro tebe</div>
+          <p class="eyebrow">Možná právě tohle hledáš</p>
+
           <h2>Nemusíš mít všechno vyřešené.</h2>
+
           <p>
-            Někdy pomůže vystoupit z každodenního kolotoče.
-            Ne proto, abys dostal další návod, jak žít,
-            ale abys mohl lépe slyšet sám sebe.
+            Stačí začít tam, kde právě jsi. Nemusíš mít připravené
+            správné otázky ani přesně vědět, co chceš změnit.
           </p>
         </div>
 
         <div class="cards">
+
           <article class="card">
-            <div class="number">01 / ZASTAVENÍ</div>
-            <h3>Udělat si prostor</h3>
-            <p>Čas, ve kterém nemusíš nic dokazovat ani okamžitě hledat řešení.</p>
+            <div class="card-number" aria-hidden="true">01</div>
+
+            <h3>Zastavení</h3>
+
+            <p>
+              Když je toho příliš a potřebuješ se na chvíli zastavit.
+              Věnovat pozornost sobě, svým potřebám a tomu, co ti
+              v každodenním shonu možná uniká.
+            </p>
           </article>
 
           <article class="card">
-            <div class="number">02 / NADHLED</div>
-            <h3>Podívat se jinak</h3>
-            <p>Prozkoumat svou situaci z nového úhlu a všimnout si dalších možností.</p>
+            <div class="card-number" aria-hidden="true">02</div>
+
+            <h3>Nadhled</h3>
+
+            <p>
+              Když se točíš v kruhu a stále řešíš stejné věci.
+              Společný rozhovor ti může pomoci podívat se na situaci
+              z jiné perspektivy a objevit nové možnosti.
+            </p>
           </article>
 
           <article class="card">
-            <div class="number">03 / VLASTNÍ SMĚR</div>
-            <h3>Najít svou odpověď</h3>
-            <p>Ujasnit si, na čem ti záleží a jaký další krok dává smysl právě tobě.</p>
+            <div class="card-number" aria-hidden="true">03</div>
+
+            <h3>Vlastní směr</h3>
+
+            <p>
+              Když cítíš, že chceš něco jinak, ale ještě nevíš co.
+              Prozkoumáš, na čem ti záleží, a najdeš další krok,
+              který dává smysl tobě.
+            </p>
           </article>
+
         </div>
       </div>
     </section>
+
+    <!-- HLAVNÍ MYŠLENKA -->
 
     <section class="green-section">
       <div class="wrap">
-        <div class="eyebrow">Bez univerzálních návodů</div>
+
+        <p class="eyebrow">Tvůj prostor</p>
+
         <h2>Tvůj život. Tvoje otázky. Tvoje odpovědi.</h2>
+
         <p>
-          Koučink není o tom, že ti někdo řekne, co máš dělat.
-          Je to rozhovor, který ti pomůže ujasnit si vlastní pohled,
-          možnosti a další směr. Ty zůstáváš tím, kdo rozhoduje.
+          Koučink není o tom, že ti někdo řekne, jak máš žít.
+          Je to rozhovor, ve kterém můžeš přemýšlet nahlas,
+          hledat souvislosti a objevovat vlastní možnosti.
+          Bez hotových návodů. Bez hodnocení. S pozorností
+          věnovanou tomu, co potřebuješ právě ty.
         </p>
-        <a class="button" href="#kontakt">Pojďme si o tom promluvit</a>
+
+        <a class="button" href="#kontakt">
+          Chci se dozvědět víc
+        </a>
+
       </div>
     </section>
 
-    <section>
-      <div class="wrap about">
-        <img class="portrait" src="daniel-verner.png" alt="Daniel Verner, osobní kouč">
-        <div>
-          <div class="eyebrow">Kdo tě rozhovorem provede</div>
-          <h2>Jsem Daniel.</h2>
-          <p>
-            Zajímá mě, co se stane, když člověk dostane prostor
-            podívat se na svůj život bez hotových rad a cizích očekávání.
-          </p>
-          <p>
-            Koučink studuji a rozvíjím své dovednosti, abych lidem
-            pomáhal hledat vlastní odpovědi, nové souvislosti
-            a možnosti, které jim dávají smysl.
-          </p>
-          <p>
-            Nemusíš přijít s dokonale formulovaným cílem.
-            Stačí téma, které chceš prozkoumat.
-          </p>
+    <!-- O DANIELOVI -->
+
+    <section id="o-mne">
+      <div class="wrap">
+
+        <div class="about">
+
+          <img
+            class="portrait"
+            src="daniel-verner.png"
+            alt="Daniel Verner"
+            width="250"
+            loading="lazy"
+          >
+
+          <div class="about-copy">
+            <p class="eyebrow">Kdo tě bude provázet</p>
+
+            <h2>Jsem Daniel.</h2>
+
+            <p>
+              Věřím, že někdy nepotřebujeme, aby nám někdo radil.
+              Potřebujeme, aby nám někdo opravdu naslouchal
+              a pomohl nám podívat se na věci jinak.
+            </p>
+
+            <p>
+              I proto jsem se rozhodl věnovat koučinku. Zajímá mě,
+              co lidé prožívají, co je brzdí a co se může změnit,
+              když dostanou prostor přemýšlet po svém.
+            </p>
+
+            <p>
+              Nechci ti říkat, jak máš žít. Chci ti nabídnout
+              prostor, ve kterém můžeš hledat vlastní odpovědi.
+            </p>
+
+            <div class="signature">
+              Daniel Verner <span>|</span> kouč
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
+
+    <!-- KONTAKT -->
 
     <section class="contact" id="kontakt">
       <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">První krok</div>
-          <h2>Co kdybychom začali rozhovorem?</h2>
-          <p>
-            Napiš mi, co bys chtěl probrat. Domluvíme se na úvodním
-            setkání a společně zjistíme, zda je koučink pro tebe vhodný.
+
+        <div class="contact-inner">
+
+          <div class="section-head">
+            <p class="eyebrow">První krok nemusí být velký</p>
+
+            <h2>Začneme rozhovorem?</h2>
+
+            <p>
+              Nemusíš mít všechno promyšlené. Napiš mi pár slov
+              o tom, co právě řešíš, nebo se ozvi jen proto,
+              abychom zjistili, jestli ti koučink dává smysl.
+            </p>
+          </div>
+
+          <a
+            class="contact-email"
+            href="mailto:massebe.cz@gmail.com?subject=Kou%C4%8Dink%20%E2%80%93%20M%C3%81%C5%A0%20SE(BE)"
+          >
+            massebe.cz@gmail.com
+          </a>
+
+          <p class="contact-note">
+            První zpráva tě k ničemu nezavazuje.
+            Můžeme si nejprve ujasnit, co potřebuješ
+            a zda je koučink pro tebe vhodnou cestou.
           </p>
+
+          <a
+            class="button"
+            href="mailto:massebe.cz@gmail.com?subject=Kou%C4%8Dink%20%E2%80%93%20M%C3%81%C5%A0%20SE(BE)"
+          >
+            Napsat Danielovi ↗
+          </a>
+
         </div>
-        <a class="button primary"
-           href="mailto:massebe.cz@gmail.com?subject=Z%C3%A1jem%20o%20%C3%BAvodn%C3%AD%20kou%C4%8Dinkov%C3%A9%20setk%C3%A1n%C3%AD">
-          Napsat Danielovi
-        </a>
-        <p><a class="email" href="mailto:massebe.cz@gmail.com">massebe.cz@gmail.com</a></p>
-        <p style="font-size:.85rem;color:#667067">Rezervační kalendář doplníme v dalším kroku.</p>
       </div>
     </section>
+
   </main>
 
-  <footer>
+  <!-- PATIČKA -->
+
+  <footer class="site-footer">
     <div class="wrap footer-inner">
-      <div>© <span id="year"></span> Daniel Verner · MÁŠ SE(BE)?</div>
-      <div>Osobní koučink · <a href="mailto:massebe.cz@gmail.com">Kontakt</a></div>
+
+      <p class="footer-brand">MÁŠ SE(BE)?</p>
+
+      <p>Daniel Verner | kouč</p>
+
+      <p>© <span id="year">2026</span> Všechna práva vyhrazena.</p>
+
     </div>
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
   </script>
+
 </body>
 </html>
+
+
 
 
