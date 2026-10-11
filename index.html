@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>MÁŠ SE(BE)? | Daniel Verner – kouč</title>
+  <title>Osobní koučink online | MÁŠ SE(BE)? – Daniel Verner</title>
 
-  <meta name="description" content="Někdy nepotřebuješ radu. Potřebuješ jiný pohled. Osobní koučink s Danielem Vernerem. Dovol si představit ti tebe.">
+  <meta name="description" content="Osobní koučink s Danielem Vernerem. Prostor pro zastavení, nové pohledy a vlastní směr. První strategické setkání je zdarma.">
 
   <meta name="author" content="Daniel Verner">
   <meta name="theme-color" content="#f5f1e7">
 
-  <meta property="og:title" content="MÁŠ SE(BE)? – Daniel Verner, kouč">
-  <meta property="og:description" content="Dovol si představit ti tebe. Prostor pro zastavení, nadhled a vlastní směr.">
+  <meta property="og:title" content="Osobní koučink | MÁŠ SE(BE)? – Daniel Verner">
+  <meta property="og:description" content="Bezpečný prostor pro zastavení, objevování vlastních možností a hledání dalšího kroku. První strategické setkání zdarma.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://massebe.cz/">
 
@@ -427,6 +427,50 @@
 
     .signature span {
       color: var(--gold);
+    }
+
+
+    /* STRATEGICKÉ SETKÁNÍ */
+    .strategic-section {
+      background: var(--paper);
+    }
+
+    .strategic-copy {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .strategic-copy h2 {
+      margin: 0 0 18px;
+      color: var(--green);
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      line-height: 1.2;
+      letter-spacing: -0.8px;
+    }
+
+    .strategic-copy p {
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    .hero-note {
+      max-width: 600px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      .hero-note {
+        text-align: left;
+      }
+
+      .strategic-copy {
+        text-align: left;
+      }
     }
 
     /* KONTAKT */
@@ -963,6 +1007,9 @@
         <a class="nav-link nav-link-message" href="#kontakt">
           Napsat zprávu
         </a>
+        <a class="nav-link nav-link-message" href="#o-mne">
+          O mě
+        </a>
       </div>
     </div>
   </header>
@@ -983,29 +1030,50 @@
         >
 
         <div class="intro">
-          <p class="eyebrow">Prostor pro tebe</p>
+          <p class="eyebrow">Osobní koučink · nejčastěji online</p>
 
-          <h1>Někdy nepotřebuješ radu. Potřebuješ jiný pohled.</h1>
+          <h1>Někdy nepotřebuješ radu. Potřebuješ jiný pohled na věc.</h1>
 
           <p>
-            Někdy se v životě zastavíme na místě, přestože se snažíme
-            jít dál. Možná nepotřebuješ další návod ani někoho, kdo ti
-            řekne, co máš dělat. Možná potřebuješ prostor, ve kterém
-            si ujasníš, co je důležité právě pro tebe.
+            Něco chceš změnit, ale nevíš jak? Nebo si potřebuješ
+            ujasnit, co je pro tebe důležité? Koučink ti nabídne
+            prostor najít vlastní odpovědi a další krok. Nejčastěji
+            se potkáváme online, pohodlně z tvého prostředí.
           </p>
 
           <div class="actions">
             <a class="button" href="#kontakt">
-              Pojďme si promluvit
+              Domluvit strategické setkání zdarma
             </a>
 
             <a class="button button-secondary" href="#koucink">
               Co je koučink?
             </a>
           </div>
+          <p class="hero-note">První setkání je zdarma a k ničemu tě nezavazuje. Osobně se můžeme potkat také po domluvě.</p>
         </div>
       </div>
     </section>
+
+    <!-- STRATEGICKÉ SETKÁNÍ -->
+    <section class="strategic-section" id="strategicke-setkani">
+      <div class="wrap">
+        <div class="strategic-copy">
+          <p class="eyebrow">První krok</p>
+          <h2>„Nevím“ může být začátek dobrodružství.</h2>
+          <p>
+            Nemusíš vědět, co přesně hledáš. Společně pojmenujeme
+            téma, které je pro tebe právě teď nejdůležitější, a poznáme,
+            jestli si vzájemně vyhovujeme.
+          </p>
+          <p>
+            Strategické setkání je zdarma. Na konci se oba rozhodneme,
+            zda chceme pokračovat. 
+          </p>
+        </div>
+      </div>
+    </section>
+
 
     <!-- S ČÍM MŮŽE KOUČINK POMOCI -->
 
@@ -1015,7 +1083,7 @@
         <div class="section-head">
           <p class="eyebrow">Možná právě tohle hledáš</p>
 
-          <h2>Nemusíš mít všechno vyřešené.</h2>
+          <h2>Každý začátek může vypadat jinak.</h2>
 
           <p>
             Stačí začít tam, kde právě jsi. Nemusíš mít připravené
@@ -1031,9 +1099,9 @@
             <h3>Zastavení</h3>
 
             <p>
-              Když je toho příliš a potřebuješ se na chvíli zastavit.
-              Věnovat pozornost sobě, svým potřebám a tomu, co ti
-              v každodenním shonu možná uniká.
+              Když je toho na tebe moc a potřebuješ zpomalit.
+              Získáš prostor všimnout si vlastních potřeb, priorit
+              a toho, co ti v každodenním shonu uniká.
             </p>
           </article>
 
@@ -1043,9 +1111,9 @@
             <h3>Nadhled</h3>
 
             <p>
-              Když se točíš v kruhu a stále řešíš stejné věci.
-              Společný rozhovor ti může pomoci podívat se na situaci
-              z jiné perspektivy a objevit nové možnosti.
+              Když řešíš stejnou otázku pořád dokola nebo stojíš
+              před rozhodnutím. Společně se podíváme na situaci
+              z nového úhlu a prozkoumáme možné cesty.
             </p>
           </article>
 
@@ -1055,9 +1123,9 @@
             <h3>Vlastní směr</h3>
 
             <p>
-              Když cítíš, že chceš něco jinak, ale ještě nevíš co.
-              Prozkoumáš, na čem ti záleží, a najdeš další krok,
-              který dává smysl tobě.
+              Když cítíš, že chceš změnu, ale ještě nevíš, jakou.
+              Můžeš prozkoumat, na čem ti záleží, co si přeješ
+              a jaký další krok ti dává smysl.
             </p>
           </article>
 
@@ -1072,18 +1140,19 @@
 
         <p class="eyebrow">Tvůj prostor</p>
 
-        <h2>Tvůj život. Tvoje otázky. Tvoje odpovědi.</h2>
+        <h2>Život je hra. Nemusíš ji hrát podle cizích pravidel.</h2>
 
         <p>
-          Koučink není o tom, že ti někdo řekne, jak máš žít.
-          Je to rozhovor, ve kterém můžeš přemýšlet nahlas,
-          hledat souvislosti a objevovat vlastní možnosti.
-          Bez hotových návodů. Bez hodnocení. S pozorností
-          věnovanou tomu, co potřebuješ právě ty.
+          Nabízím prostor, kde nejsi souzen za své sny, chyby ani za to,
+          kým jsi.</p> 
+          <p>Kde můžeš zkoušet nové cesty a hledat, co ti dává
+          smysl.</p> 
+          <p>Sandbox života, ve kterém nemusíš znát všechny
+          odpovědi ani hrát podle cizích pravidel.
         </p>
 
-        <a class="button" href="#kontakt">
-          Chci se dozvědět víc
+        <a class="button" href="#strategicke-setkani">
+          Začít objevovat
         </a>
 
       </div>
@@ -1110,20 +1179,15 @@
             <h2>Jsem Daniel.</h2>
 
             <p>
-              Věřím, že někdy nepotřebujeme, aby nám někdo radil.
-              Potřebujeme, aby nám někdo opravdu naslouchal
-              a pomohl nám podívat se na věci jinak.
+              Ke koučinku mě přivedla chuť dělat něco smysluplného
+              a pomáhat lidem. Zároveň jsem poznal, že koučink může
+              obohatit i mě a nabídnout nový pohled na vlastní život.
             </p>
 
             <p>
-              I proto jsem se rozhodl věnovat koučinku. Zajímá mě,
-              co lidé prožívají, co je brzdí a co se může změnit,
-              když dostanou prostor přemýšlet po svém.
-            </p>
-
-            <p>
-              Nechci ti říkat, jak máš žít. Chci ti nabídnout
-              prostor, ve kterém můžeš hledat vlastní odpovědi.
+              Koučink studuji na mezinárodní škole CoachVille.
+              Nechci ti říkat, jak máš žít. Nabízím prostor,
+              kde můžeš hledat vlastní odpovědi.
             </p>
 
             <div class="signature">
@@ -1136,19 +1200,13 @@
     </section>
 
 
+
     <!-- MALÝ ORIENTAČNÍ KALENDÁŘ -->
     <section class="calendar-section" id="orientacni-kalendar" aria-labelledby="calendar-heading">
       <div class="wrap">
         <div class="calendar-inner">
           <h2 class="calendar-heading" id="calendar-heading">Kdy se můžeme potkat?</h2>
-          <p class="calendar-note">
-  Podívej se, jaké je datum, a vyber si den.
-</p>
-
-<p class="calendar-note">
-  Rezervace tě k ničemu nezavazuje. Můžeme si nejprve ujasnit,
-  co potřebuješ a zda je koučink pro tebe vhodnou cestou.
-</p>
+          <p class="calendar-note">Nejčastěji online. Osobně po domluvě.</p>
 
           <div class="calendar-top">
             <p class="calendar-month" id="calendar-month" aria-live="polite"></p>
@@ -1159,7 +1217,7 @@
           </div>
 
           <div class="calendar-grid" id="calendar-grid" aria-label="Kalendář"></div>
-          <p class="calendar-footnote">Kliknutím na datum otevřeš stránku pro domluvení setkání.</p>
+          <p class="calendar-footnote">Kalendář je orientační. Kliknutím otevřeš stránku s dostupnými termíny.</p>
         </div>
       </div>
     </section>
