@@ -3,26 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Osobní koučink online | MÁŠ SE(BE)? – Daniel Verner</title>
-
-  <meta name="description" content="Osobní koučink s Danielem Vernerem. Prostor pro zastavení, nové pohledy a vlastní směr. První strategické setkání je zdarma.">
-
+  <meta name="description" content="Osobní a profesní koučink s Danielem Vernerem. Prostor pro zastavení, nový pohled a vlastní směr. Domluv si první setkání zdarma.">
   <meta name="author" content="Daniel Verner">
   <meta name="theme-color" content="#f5f1e7">
-
-  <meta property="og:title" content="Osobní koučink | MÁŠ SE(BE)? – Daniel Verner">
-  <meta property="og:description" content="Bezpečný prostor pro zastavení, objevování vlastních možností a hledání dalšího kroku. První strategické setkání zdarma.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://massebe.cz/">
-
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://massebe.cz/">
-
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:site_name" content="MÁŠ SE(BE)?">
+  <meta property="og:title" content="MÁŠ SE(BE)? – Osobní koučink s Danielem Vernerem">
+  <meta property="og:description" content="Někdy nepotřebuješ radu. Potřebuješ jiný pohled na věc. Najdi prostor pro vlastní odpovědi a další krok.">
+  <meta property="og:url" content="https://massebe.cz/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "MÁŠ SE(BE)?",
+        "url": "https://massebe.cz/",
+        "inLanguage": "cs-CZ"
+      },
+      {
+        "@type": "Person",
+        "name": "Daniel Verner",
+        "url": "https://massebe.cz/",
+        "email": "massebe.cz@gmail.com",
+        "telephone": "+420773871723",
+        "knowsAbout": ["osobní koučink", "profesní rozvoj", "sebepoznání", "osobní změna"]
+      }
+    ]
+  }
+  </script>
   <style>
     :root {
       --green: #254735;
@@ -34,1337 +50,311 @@
       --text: #28342d;
       --muted: #68736b;
       --border: #e5dfd2;
-      --shadow: 0 12px 35px rgba(27, 53, 39, 0.07);
+      --shadow: 0 12px 35px rgba(27, 53, 39, .07);
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 85px;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
     body {
-      margin: 0;
-      background: var(--cream);
-      color: var(--text);
-      font-family: "Raleway", sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
+      margin: 0; background: var(--cream); color: var(--text);
+      font-family: "Raleway", sans-serif; font-size: 16px; line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
-
-    img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    button,
-    a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .wrap {
-      width: min(1080px, calc(100% - 48px));
-      margin-inline: auto;
-    }
-
-    /* HLAVIČKA */
-
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+    .wrap { width: min(1080px, calc(100% - 48px)); margin-inline: auto; }
     .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(245, 241, 231, 0.96);
-      border-bottom: 1px solid rgba(37, 71, 53, 0.09);
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(245, 241, 231, .96);
+      border-bottom: 1px solid rgba(37, 71, 53, .09);
       backdrop-filter: blur(12px);
     }
-
     .nav {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+      min-height: 76px; display: flex; align-items: center;
+      justify-content: space-between; gap: 24px;
     }
-
     .brand {
-      color: var(--green);
-      text-decoration: none;
-      font-size: 1.13rem;
-      font-weight: 800;
-      letter-spacing: -0.7px;
-      line-height: 1.2;
-      white-space: nowrap;
+      color: var(--green); text-decoration: none; font-size: 1.15rem;
+      font-weight: 800; letter-spacing: -.7px; white-space: nowrap;
     }
-
-    .brand span {
-      color: var(--gold);
+    .brand span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a {
+      color: var(--green); text-decoration: none; font-size: .9rem;
+      font-weight: 700; transition: color .2s ease;
     }
-
-    .nav-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 10px 18px;
-      border: 1px solid var(--green);
-      border-radius: 100px;
-      color: var(--green);
-      font-size: 0.88rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: background 0.2s ease, color 0.2s ease;
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links .nav-cta {
+      padding: 10px 19px; border: 1px solid var(--green);
+      border-radius: 100px; background: var(--green); color: white;
     }
-
-    .nav-link:hover {
-      background: var(--green);
-      color: white;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 10px;
-    }
-
-    .nav-link-booking {
-      background: var(--green);
-      color: white;
-    }
-
-    .nav-link-booking:hover {
-      background: var(--green-dark);
-      color: white;
-    }
-
-    .nav-link-message {
-      background: transparent;
-      color: var(--green);
-    }
-
-    /* ÚVOD */
-
-    .hero {
-      padding: 38px 0 82px;
-      text-align: center;
-    }
-
+    .nav-links .nav-cta:hover { background: var(--green-dark); color: white; }
+    .hero { padding: 44px 0 88px; text-align: center; }
     .logo {
-      width: min(100%, 570px);
-      margin: 0 auto 32px;
-      border-radius: 4px;
+      width: min(100%, 540px); margin: 0 auto 30px;
+      border-radius: 22px; background: var(--cream);
+      box-shadow: 0 8px 24px rgba(37, 71, 53, .06);
     }
-
-    
-.logo {
-  display: block;
-  width: min(100%, 570px);
-  margin: 0 auto 32px;
-  border-radius: 24px;
-  background: #f5f1e7;
-  box-shadow: 0 8px 24px rgba(37, 71, 53, 0.06);
-}
-
-
     .eyebrow {
-      margin: 0 0 14px;
-      color: var(--gold);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 2.2px;
-      text-transform: uppercase;
+      margin: 0 0 13px; color: var(--gold); font-size: .76rem;
+      font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
     }
-
-    h1,
-    h2,
-    h3,
-    p {
-      overflow-wrap: break-word;
-    }
-
+    h1, h2, h3, p { overflow-wrap: break-word; }
     h1 {
-      margin: 0 0 22px;
-      color: var(--green);
-      font-size: clamp(2.5rem, 5.4vw, 4.2rem);
-      font-weight: 700;
-      letter-spacing: -2px;
-      line-height: 1.1;
+      max-width: 850px; margin: 0 auto 20px; color: var(--green);
+      font-size: clamp(2.45rem, 5.4vw, 4.3rem); font-weight: 700;
+      letter-spacing: -2px; line-height: 1.1;
     }
-
-    .intro p {
-      max-width: 650px;
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: 1.12rem;
-      line-height: 1.85;
+    .hero-copy {
+      max-width: 690px; margin: 0 auto; color: var(--muted);
+      font-size: 1.12rem; line-height: 1.85;
     }
-
     .actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      margin-top: 30px;
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 13px; margin-top: 29px;
     }
-
     .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      padding: 14px 24px;
-      border: 1px solid var(--green);
-      border-radius: 100px;
-      background: var(--green);
-      color: white;
-      font-family: inherit;
-      font-size: 0.94rem;
-      font-weight: 700;
-      line-height: 1.35;
-      text-align: center;
-      text-decoration: none;
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s ease;
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 50px; padding: 13px 23px; border: 1px solid var(--green);
+      border-radius: 100px; background: var(--green); color: white;
+      font: 700 .93rem "Raleway", sans-serif; text-decoration: none;
+      text-align: center; transition: transform .2s ease, background .2s ease;
     }
-
-    .button:hover {
-      transform: translateY(-2px);
-      background: var(--green-dark);
-    }
-
-    .button-secondary {
-      background: transparent;
-      color: var(--green);
-    }
-
-    .button-secondary:hover {
-      background: var(--green-light);
-      color: var(--green);
-    }
-
-    /* OBSAHOVÉ SEKCE */
-
-    section {
-      padding: 78px 0;
-    }
-
-    .section-head {
-      max-width: 720px;
-      margin: 0 auto 38px;
-      text-align: center;
-    }
-
-    .section-head h2 {
-      margin: 0 0 16px;
-      color: var(--green);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      letter-spacing: -1.2px;
-      line-height: 1.2;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.8;
-    }
-
-    /* TŘI KARTY */
-
-    .possibilities {
-      background: var(--paper);
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      min-width: 0;
-      padding: 30px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: var(--paper);
-      box-shadow: var(--shadow);
-    }
-
-    .card-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 43px;
-      height: 43px;
-      margin-bottom: 18px;
-      border-radius: 50%;
-      background: var(--green-light);
-      color: var(--green);
-      font-size: 0.9rem;
-      font-weight: 800;
-    }
-
-    .card h3 {
-      margin: 0 0 12px;
-      color: var(--green);
-      font-size: 1.22rem;
-      font-weight: 700;
-      line-height: 1.35;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.8;
-    }
-
-    /* ZELENÁ SEKCE */
-
-    .green-section {
-      background: var(--green);
-      color: white;
-      text-align: center;
-    }
-
-    .green-section .wrap {
-      max-width: 850px;
-    }
-
-    .green-section .eyebrow {
-      color: #d8bd80;
-    }
-
-    .green-section h2 {
-      margin: 0 0 22px;
-      color: white;
-      font-size: clamp(2rem, 4.5vw, 3.3rem);
-      font-weight: 700;
-      letter-spacing: -1.2px;
-      line-height: 1.2;
-    }
-
-    .green-section p {
-      max-width: 700px;
-      margin: 0 auto;
-      color: rgba(255, 255, 255, 0.84);
-      font-size: 1.05rem;
-      line-height: 1.9;
-    }
-
-    .green-section .button {
-      margin-top: 28px;
-      border-color: var(--cream);
-      background: var(--cream);
-      color: var(--green);
-    }
-
-    .green-section .button:hover {
-      background: white;
-    }
-
-    /* O MNĚ */
-
-    .about {
-      display: grid;
-      grid-template-columns: minmax(200px, 250px) minmax(0, 1fr);
-      align-items: center;
-      gap: 48px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .portrait {
-      width: 100%;
-      max-width: 250px;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      object-position: center top;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      box-shadow: var(--shadow);
-    }
-
-    .about-copy {
-      min-width: 0;
-    }
-
-    .about-copy .eyebrow {
-      margin-bottom: 10px;
-    }
-
-    .about-copy h2 {
-      margin: 0 0 18px;
-      color: var(--green);
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      letter-spacing: -1px;
-      line-height: 1.2;
-    }
-
-    .about-copy p {
-      margin: 0 0 8px;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-
-    .signature {
-      margin-top: 14px;
-      color: var(--green);
-      font-weight: 700;
-    }
-
-    .signature span {
-      color: var(--gold);
-    }
-
-
-    /* STRATEGICKÉ SETKÁNÍ */
-    .strategic-section {
-      background: var(--paper);
-    }
-
-    .strategic-copy {
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .strategic-copy h2 {
-      margin: 0 0 18px;
-      color: var(--green);
-      font-size: clamp(2rem, 4vw, 2.7rem);
-      line-height: 1.2;
-      letter-spacing: -0.8px;
-    }
-
-    .strategic-copy p {
-      color: var(--muted);
-      line-height: 1.85;
-    }
-
+    .button:hover { transform: translateY(-2px); background: var(--green-dark); }
+    .button-secondary { background: transparent; color: var(--green); }
+    .button-secondary:hover { background: var(--green-light); color: var(--green); }
     .hero-note {
-      max-width: 600px;
-      margin: 18px auto 0;
-      color: var(--muted);
-      font-size: 0.88rem;
-      line-height: 1.6;
-      text-align: center;
+      max-width: 620px; margin: 17px auto 0; color: var(--muted);
+      font-size: .87rem; line-height: 1.6;
     }
-
-    @media (max-width: 700px) {
-      .hero-note {
-        text-align: left;
-      }
-
-      .strategic-copy {
-        text-align: left;
-      }
+    section { padding: 78px 0; }
+    .section-head { max-width: 720px; margin: 0 auto 42px; text-align: center; }
+    .section-head h2 {
+      margin: 0 0 15px; color: var(--green);
+      font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -1.2px; line-height: 1.2;
     }
-
-    /* KONTAKT */
-
-    .contact {
-      background: var(--paper);
+    .section-head p:not(.eyebrow) { margin: 0; color: var(--muted); line-height: 1.8; }
+    .about-section { background: var(--paper); }
+    .about {
+      display: grid; grid-template-columns: minmax(210px, 270px) minmax(0, 1fr);
+      align-items: center; gap: 52px; max-width: 930px; margin: 0 auto;
     }
-
-    .contact-inner {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
+    .portrait {
+      width: 100%; max-width: 270px; aspect-ratio: 4 / 5;
+      object-fit: cover; object-position: center top;
+      border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow);
     }
-
-    .contact .section-head {
-      margin-bottom: 28px;
+    .about-copy h2 {
+      margin: 0 0 18px; color: var(--green);
+      font-size: clamp(2rem, 4vw, 2.8rem); letter-spacing: -1px; line-height: 1.2;
     }
-
-    .contact-email {
-      display: inline-block;
-      max-width: 100%;
-      margin: 0 auto;
-      color: var(--green);
-      font-size: clamp(1rem, 3vw, 1.3rem);
-      font-weight: 700;
-      text-decoration: none;
-      overflow-wrap: anywhere;
+    .about-copy p { margin: 0 0 12px; color: var(--muted); line-height: 1.75; }
+    .signature { margin-top: 18px; color: var(--green); font-weight: 800; }
+    .signature span { color: var(--gold); }
+    .offer-section { background: var(--cream); }
+    .cards {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;
     }
-
-    .contact-email:hover {
-      text-decoration: underline;
-      text-decoration-color: var(--gold);
+    .card {
+      min-width: 0; padding: 30px; border: 1px solid var(--border);
+      border-radius: 16px; background: var(--paper); box-shadow: var(--shadow);
+    }
+    .card-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px; margin-bottom: 17px; border-radius: 50%;
+      background: var(--green-light); color: var(--green); font-size: .88rem; font-weight: 800;
+    }
+    .card h3 { margin: 0 0 11px; color: var(--green); font-size: 1.22rem; line-height: 1.35; }
+    .card p { margin: 0; color: var(--muted); font-size: .97rem; line-height: 1.8; }
+    .contact-section { background: var(--green); color: white; }
+    .contact-section .eyebrow { color: #d8bd80; }
+    .contact-section .section-head h2 { color: white; }
+    .contact-section .section-head p:not(.eyebrow) { color: rgba(255,255,255,.84); }
+    .contact-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+    .contact-actions {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 28px 0;
+    }
+    .contact-section .button { border-color: var(--cream); background: var(--cream); color: var(--green); }
+    .contact-section .button:hover { background: white; }
+    .contact-details {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 12px 30px; margin-top: 22px;
+    }
+    .contact-details a {
+      color: white; font-weight: 700; text-decoration: none;
       text-underline-offset: 5px;
     }
-
-    .contact-note {
-      max-width: 520px;
-      margin: 18px auto 0;
-      color: var(--muted);
-      font-size: 0.94rem;
-      line-height: 1.8;
-    }
-
-    .contact .button {
-      margin-top: 26px;
-    }
-
-
-    /* MALÝ ORIENTAČNÍ KALENDÁŘ */
-    .calendar-section {
-      padding: 42px 0;
-      background: var(--cream);
-    }
-
-    .calendar-inner {
-      width: min(100%, 760px);
-      margin: 0 auto;
-      padding: 26px 30px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: var(--paper);
-      box-shadow: var(--shadow);
-    }
-
-    .calendar-inner {
-      display: grid;
-      grid-template-columns: minmax(190px, 0.8fr) minmax(0, 1.2fr);
-      column-gap: 34px;
-      align-items: center;
-      row-gap: 0;
-    }
-
-    .calendar-heading {
-      grid-column: 1;
-      align-self: end;
-      margin: 0 0 8px;
-      color: var(--green);
-      font-size: 1.65rem;
-      line-height: 1.3;
-      text-align: left;
-    }
-
-    .calendar-note {
-      grid-column: 1;
-      align-self: start;
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.7;
-      text-align: left;
-    }
-
-    .calendar-top {
-      grid-column: 2;
-      grid-row: 1;
-      align-self: end;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    .calendar-month {
-      margin: 0;
-      color: var(--green);
-      font-size: 1rem;
-      font-weight: 700;
-      text-transform: capitalize;
-    }
-
-    .calendar-nav {
-      display: flex;
-      gap: 6px;
-    }
-
-    .calendar-nav button {
-      width: 32px;
-      height: 32px;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      background: var(--cream);
-      color: var(--green);
-      font: inherit;
-      font-size: 1.1rem;
-      cursor: pointer;
-    }
-
-    .calendar-nav button:hover {
-      background: var(--green-light);
-    }
-
-    .calendar-grid {
-      grid-column: 2;
-      grid-row: 2 / span 2;
-      display: grid;
-      grid-template-columns: repeat(7, minmax(0, 1fr));
-      column-gap: 7px;
-      row-gap: 2px;
-      text-align: center;
-    }
-
-    .calendar-weekday {
-      padding: 3px 0 5px;
-      color: var(--muted);
-      font-size: 0.82rem;
-      font-weight: 700;
-    }
-
-    .calendar-day,
-    .calendar-empty {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 0;
-      height: 38px;
-    }
-
-    .calendar-day {
-      border-radius: 50%;
-      color: var(--text);
-      font-size: 0.82rem;
-      text-decoration: none;
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-
-    .calendar-day:hover {
-      background: var(--green-light);
-      color: var(--green);
-    }
-
-    .calendar-day.today {
-      background: var(--green);
-      color: white;
-      font-weight: 800;
-    }
-
-    .calendar-day.today:hover {
-      background: var(--green-dark);
-      color: white;
-    }
-
-    .calendar-footnote {
-      grid-column: 1 / -1;
-      margin: 18px 0 0;
-      color: var(--muted);
-      font-size: 0.8rem;
-      line-height: 1.5;
-      text-align: left;
-    }
-
-    @media (max-width: 700px) {
-      .calendar-section {
-        padding: 32px 0;
-      }
-
-      .calendar-inner {
-        width: min(100%, 390px);
-        display: block;
-        padding: 18px;
-      }
-
-      .calendar-heading {
-        margin: 0 0 5px;
-        font-size: 1.35rem;
-        text-align: center;
-      }
-
-      .calendar-note {
-        margin: 0 0 18px;
-        font-size: 0.86rem;
-        text-align: center;
-      }
-
-      .calendar-grid {
-        column-gap: 4px;
-        row-gap: 4px;
-      }
-
-      .calendar-day,
-      .calendar-empty {
-        height: auto;
-        aspect-ratio: 1;
-      }
-
-      .calendar-footnote {
-        margin: 14px 0 0;
-        font-size: 0.75rem;
-        text-align: center;
-      }
-    }
-
-    /* PATIČKA */
-
-    .site-footer {
-      padding: 24px 0;
-      background: var(--green-dark);
-      color: rgba(255, 255, 255, 0.78);
-      font-size: 0.83rem;
-    }
-
+    .contact-details a:hover { text-decoration: underline; text-decoration-color: #d8bd80; }
+    .contact-note { margin: 20px auto 0; color: rgba(255,255,255,.75); font-size: .88rem; }
+    .site-footer { padding: 25px 0; background: var(--green-dark); color: rgba(255,255,255,.76); font-size: .82rem; }
     .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 12px 24px;
     }
-
-    .footer-inner p {
-      margin: 0;
+    .footer-inner p { margin: 0; }
+    .footer-brand { color: white; font-weight: 800; }
+    .footer-inner a { color: white; text-underline-offset: 3px; }
+    .privacy-note { padding: 22px 0; background: #14291e; color: rgba(255,255,255,.7); }
+    .privacy-note details { max-width: 900px; margin: 0 auto; }
+    .privacy-note summary { color: white; font-size: .86rem; font-weight: 700; cursor: pointer; }
+    .privacy-note p { margin: 10px 0 0; font-size: .78rem; line-height: 1.65; }
+    @media (max-width: 760px) {
+      html { scroll-padding-top: 115px; }
+      .wrap { width: calc(100% - 38px); }
+      .nav { min-height: 68px; flex-wrap: wrap; gap: 8px; padding: 12px 0; }
+      .brand { font-size: 1.05rem; }
+      .nav-links { width: 100%; justify-content: space-between; gap: 12px; }
+      .nav-links a { font-size: .82rem; }
+      .nav-links .nav-cta { padding: 7px 13px; }
+      .hero { padding: 28px 0 55px; }
+      .logo { width: min(100%, 460px); margin-bottom: 25px; }
+      h1 { font-size: clamp(2.05rem, 8vw, 2.8rem); letter-spacing: -1px; }
+      .hero-copy { font-size: 1rem; line-height: 1.75; }
+      .actions { flex-direction: column; align-items: stretch; }
+      .actions .button { width: 100%; }
+      section { padding: 54px 0; }
+      .section-head { margin-bottom: 28px; text-align: left; }
+      .section-head h2 { font-size: clamp(1.85rem, 7vw, 2.35rem); }
+      .about { grid-template-columns: 1fr; justify-items: start; gap: 25px; }
+      .portrait { width: min(100%, 235px); }
+      .cards { grid-template-columns: 1fr; gap: 13px; }
+      .card { padding: 23px; }
+      .contact-inner { text-align: left; }
+      .contact-actions { flex-direction: column; align-items: stretch; }
+      .contact-actions .button { width: 100%; }
+      .contact-details { align-items: flex-start; flex-direction: column; gap: 9px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; gap: 8px; }
     }
-
-    .footer-brand {
-      color: white;
-      font-weight: 700;
-    }
-
-    /* TABLETY */
-
-    @media (max-width: 850px) {
-      .wrap {
-        width: calc(100% - 40px);
-      }
-
-      .hero {
-        padding: 32px 0 64px;
-      }
-
-      section {
-        padding: 64px 0;
-      }
-
-      .cards {
-        gap: 14px;
-      }
-
-      .card {
-        padding: 24px;
-      }
-
-      .about {
-        grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
-        gap: 30px;
-      }
-    }
-
-    /* MOBILY */
-
-    @media (max-width: 700px) {
-      html {
-        scroll-padding-top: 72px;
-      }
-
-      .wrap {
-        width: calc(100% - 36px);
-      }
-
-      .nav {
-        min-height: 64px;
-        padding: 10px 0;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-
-      .brand {
-        font-size: 1rem;
-        letter-spacing: -0.5px;
-      }
-
-      .nav-actions {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1.15fr 1fr auto;
-        gap: 7px;
-      }
-
-      .nav-link {
-        min-width: 0;
-        min-height: 40px;
-        padding: 8px 10px;
-        font-size: 0.74rem;
-        text-align: center;
-        white-space: nowrap;
-      }
-
-      .hero {
-        padding: 24px 0 46px;
-      }
-
-      .logo {
-        width: 100%;
-        max-width: 480px;
-        margin: 0 auto 25px;
-      }
-
-      .intro {
-        text-align: left;
-      }
-
-      .eyebrow {
-        font-size: 0.72rem;
-        letter-spacing: 1.5px;
-      }
-
-      h1 {
-        font-size: clamp(2rem, 8vw, 2.7rem);
-        line-height: 1.12;
-        letter-spacing: -1px;
-        margin: 12px 0 16px;
-      }
-
-      .intro p {
-        font-size: 1rem;
-        line-height: 1.75;
-      }
-
-      .actions {
-        align-items: stretch;
-        justify-content: flex-start;
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 22px;
-      }
-
-      .actions .button {
-        width: 100%;
-        min-height: 48px;
-        padding: 12px 16px;
-      }
-
-      section {
-        padding: 46px 0;
-      }
-
-      .section-head {
-        margin-bottom: 25px;
-        text-align: left;
-      }
-
-      .section-head h2 {
-        font-size: clamp(1.8rem, 7vw, 2.3rem);
-        line-height: 1.2;
-        letter-spacing: -0.7px;
-      }
-
-      .section-head p {
-        font-size: 0.96rem;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-        gap: 13px;
-      }
-
-      .card {
-        padding: 22px;
-        border-radius: 13px;
-      }
-
-      .card-number {
-        width: 39px;
-        height: 39px;
-        margin-bottom: 13px;
-      }
-
-      .card h3 {
-        font-size: 1.15rem;
-      }
-
-      .card p {
-        font-size: 0.94rem;
-      }
-
-      .green-section {
-        text-align: left;
-      }
-
-      .green-section h2 {
-        font-size: clamp(1.9rem, 7vw, 2.4rem);
-        line-height: 1.2;
-      }
-
-      .green-section p {
-        font-size: 0.98rem;
-        line-height: 1.8;
-      }
-
-      .green-section .button {
-        width: 100%;
-      }
-
-      .about {
-        grid-template-columns: 1fr;
-        justify-items: start;
-        gap: 23px;
-      }
-
-      .portrait {
-        width: min(100%, 240px);
-        max-width: 240px;
-        aspect-ratio: 4 / 5;
-        object-fit: cover;
-        object-position: center top;
-      }
-
-      .about-copy h2 {
-        font-size: 2.15rem;
-      }
-
-      .about-copy p {
-        margin-bottom: 8px;
-        font-size: 0.97rem;
-        line-height: 1.7;
-      }
-
-      .signature {
-        margin-top: 14px;
-      }
-
-      .contact .section-head {
-        margin-bottom: 22px;
-      }
-
-      .contact-inner {
-        text-align: left;
-      }
-
-      .contact .section-head {
-        text-align: left;
-      }
-
-      .contact .button {
-        width: 100%;
-      }
-
-      .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 7px;
-      }
-    }
-
-    /* MENŠÍ TELEFONY */
-
-    @media (max-width: 380px) {
-      .wrap {
-        width: calc(100% - 30px);
-      }
-
-      .brand {
-        font-size: 0.88rem;
-      }
-
-      .nav-actions {
-        grid-template-columns: 1.15fr 1fr auto;
-        gap: 5px;
-      }
-
-      .nav-link {
-        padding: 7px 7px;
-        font-size: 0.64rem;
-      }
-
-      .logo {
-        margin-bottom: 20px;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      .actions .button {
-        font-size: 0.9rem;
-      }
-    }
-
-    /* OMEZENÍ ANIMACÍ PRO UŽIVATELE, KTEŘÍ JE NEPREFERUJÍ */
-
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-      }
-      .about-copy p {
-  margin-bottom: 8px;
-  line-height: 1.6;
-}
-      }
-    
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
   </style>
 </head>
-
 <body>
-
   <header class="site-header">
     <div class="wrap nav">
-      <a class="brand" href="#domu" aria-label="MÁŠ SE(BE) – úvod">
-        MÁŠ SE<span>(BE)</span>?
-      </a>
-
-      <div class="nav-actions">
-        <a class="nav-link nav-link-booking" href="#orientacni-kalendar">
-          Rezervovat termín
-        </a>
-        <a class="nav-link nav-link-message" href="#kontakt">
-          Napsat zprávu
-        </a>
-        <a class="nav-link nav-link-message" href="#o-mne">
-          O mně
-        </a>
-      </div>
+      <a class="brand" href="#domu" aria-label="MÁŠ SE(BE)? – úvod">MÁŠ SE<span>(BE)</span>?</a>
+      <nav class="nav-links" aria-label="Hlavní navigace">
+        <a href="#o-mne">O mně</a>
+        <a href="#nabidka">Nabídka</a>
+        <a class="nav-cta" href="#kontakt">Kontakt</a>
+      </nav>
     </div>
   </header>
 
   <main>
-
-    <!-- ÚVODNÍ SEKCE -->
-
     <section class="hero" id="domu">
       <div class="wrap">
-
-        <img
-          class="logo"
-          src="logo.png"
-          alt="MÁŠ SE(BE)? Dovol si představit ti tebe."
-          width="570"
-          fetchpriority="high"
-        >
-
-        <div class="intro">
-          <p class="eyebrow">Osobní koučink </p>
-
-          <h1>Někdy nepotřebuješ radu. Potřebuješ jiný pohled na věc.</h1>
-
-          <p>
-            Něco chceš změnit, ale nevíš jak? Nebo si potřebuješ
-            ujasnit, co je pro tebe důležité? Koučink ti nabídne
-            prostor najít vlastní odpovědi a další krok. Nejčastěji
-            se potkáváme online, pohodlně z tvého prostředí.
-          </p>
-
-          <div class="actions">
-            <a class="button" href="#kontakt">
-              Domluvit první setkání zdarma
-            </a>
-
-            <a class="button button-secondary" href="#koucink">
-              Co je koučink?
-            </a>
-          </div>
-          <p class="hero-note">První setkání je zdarma a k ničemu tě nezavazuje. Po domluvě, je možné, se setkat i osobně.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- STRATEGICKÉ SETKÁNÍ -->
-    <section class="strategic-section" id="strategicke-setkani">
-      <div class="wrap">
-        <div class="strategic-copy">
-          <p class="eyebrow">První krok</p>
-          <h2>„Nevím“ může být začátek dobrodružství.</h2>
-          <p>
-            Nemusíš vědět, co přesně hledáš. Společně pojmenujeme
-            téma, které je pro tebe právě teď nejdůležitější, a poznáme,
-            jestli si vzájemně vyhovujeme.
-          </p>
-          <p>
-            První setkání je zdarma. Na konci se oba rozhodneme,
-            zda chceme pokračovat. 
-          </p>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- S ČÍM MŮŽE KOUČINK POMOCI -->
-
-    <section class="possibilities" id="koucink">
-      <div class="wrap">
-
-        <div class="section-head">
-          <p class="eyebrow">Možná právě tohle hledáš</p>
-
-          <h2>Každý začátek může vypadat jinak.</h2>
-
-          <p>
-            Stačí začít tam, kde právě jsi. Nemusíš mít připravené
-            správné otázky ani přesně vědět, co chceš změnit.
-          </p>
-        </div>
-
-        <div class="cards">
-
-          <article class="card">
-            <div class="card-number" aria-hidden="true">01</div>
-
-            <h3>Zastavení</h3>
-
-            <p>
-              Když je toho na tebe moc a potřebuješ zpomalit.
-              Získáš prostor všimnout si vlastních potřeb, priorit
-              a toho, co ti v každodenním shonu uniká.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-number" aria-hidden="true">02</div>
-
-            <h3>Nadhled</h3>
-
-            <p>
-              Když řešíš stejnou otázku pořád dokola nebo stojíš
-              před rozhodnutím. Společně se podíváme na situaci
-              z nového úhlu a prozkoumáme možné cesty.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-number" aria-hidden="true">03</div>
-
-            <h3>Vlastní směr</h3>
-
-            <p>
-              Když cítíš, že chceš změnu, ale ještě nevíš, jakou.
-              Můžeš prozkoumat, na čem ti záleží, co si přeješ
-              a jaký další krok ti dává smysl.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- HLAVNÍ MYŠLENKA -->
-
-    <section class="green-section">
-      <div class="wrap">
-
-        <p class="eyebrow">Tvůj prostor</p>
-
-        <h2>Život je hra. Nemusíš ji hrát podle cizích pravidel.</h2>
-
-        <p>
-          Nabízím prostor, kde nejsi souzen za své sny, chyby ani za to,
-          kým jsi. Kde můžeš zkoušet nové cesty a hledat, co ti dává
-          smysl. Sandbox života, ve kterém nemusíš znát všechny
-          odpovědi ani hrát podle cizích pravidel.
+        <img class="logo" src="logo.png" alt="MÁŠ SE(BE)? Dovol si představit ti tebe." width="570" fetchpriority="high">
+        <p class="eyebrow">Osobní a profesní koučink</p>
+        <h1>Někdy nepotřebuješ radu. Potřebuješ jiný pohled na věc.</h1>
+        <p class="hero-copy">
+          Něco chceš změnit, ale nevíš jak? Nebo si potřebuješ ujasnit, co je pro tebe důležité?
+          Koučink ti nabídne prostor najít vlastní odpovědi a další krok. Nejčastěji se potkáváme
+          online, pohodlně z tvého prostředí.
         </p>
-
-        <a class="button" href="#kontakt">
-          Začít objevovat
-        </a>
-
+        <div class="actions">
+          <a class="button" href="https://calendar.app.google/NJ7az3mU5WE9Zf3MA" target="_blank" rel="noopener noreferrer">Domluvit první setkání zdarma</a>
+        </div>
+        <p class="hero-note">První setkání je zdarma a k ničemu tě nezavazuje. Po domluvě je možné se setkat i osobně.</p>
       </div>
     </section>
 
-    <!-- O DANIELOVI -->
-
-    <section id="o-mne">
+    <section class="about-section" id="o-mne">
       <div class="wrap">
-
         <div class="about">
-
-          <img
-            class="portrait"
-            src="daniel-verner.png"
-            alt="Daniel Verner"
-            width="250"
-            loading="lazy"
-          >
-
+          <img class="portrait" src="daniel-verner.png" alt="Daniel Verner" width="270" loading="lazy">
           <div class="about-copy">
             <p class="eyebrow">Kdo tě bude provázet</p>
-
             <h2>Jsem Daniel.</h2>
-
-            <p>
-              Koučink studuji na mezinárodní škole CoachVille.</p>
-              <p>Ke koučinku mě přivedla chuť dělat něco smysluplného
-              a pomáhat lidem. Zároveň jsem poznal, že koučink může
-              obohatit i mě a nabídnout nový pohled na vlastní život.
-            </p>
+            <p>Koučink studuji na mezinárodní škole CoachVille.</p>
+            <p>Ke koučinku mě přivedla chuť dělat něco smysluplného a pomáhat lidem. Zároveň jsem poznal, že koučink může obohatit i mě a nabídnout nový pohled na vlastní život.</p>
             <p>Nechci ti říkat, jak máš žít.</p>
             <p>Nabízím prostor, kde můžeš hledat vlastní odpovědi.</p>
-
-            <div class="signature">
-              Daniel Verner <span>|</span> kouč
-            </div>
+            <div class="signature">Daniel Verner <span>|</span> kouč</div>
           </div>
-
         </div>
       </div>
     </section>
 
-
-
-    <!-- MALÝ ORIENTAČNÍ KALENDÁŘ -->
-    <section class="calendar-section" id="orientacni-kalendar" aria-labelledby="calendar-heading">
+    <section class="offer-section" id="nabidka">
       <div class="wrap">
-        <div class="calendar-inner">
-          <h2 class="calendar-heading" id="calendar-heading">Kdy se můžeme potkat?</h2>
-          <p class="calendar-note">Nejčastěji online. Osobně po domluvě.</p>
-
-          <div class="calendar-top">
-            <p class="calendar-month" id="calendar-month" aria-live="polite"></p>
-            <div class="calendar-nav">
-              <button type="button" id="calendar-prev" aria-label="Předchozí měsíc">‹</button>
-              <button type="button" id="calendar-next" aria-label="Následující měsíc">›</button>
-            </div>
-          </div>
-
-          <div class="calendar-grid" id="calendar-grid" aria-label="Kalendář"></div>
-          <p class="calendar-footnote">Kalendář je orientační. Kliknutím otevřeš stránku s dostupnými termíny.</p>
+        <div class="section-head">
+          <p class="eyebrow">Možná právě tohle hledáš</p>
+          <h2>S čím ti může koučink pomoci?</h2>
+          <p>Každý začátek může vypadat jinak. Můžeme začít tam, kde právě jsi.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-number" aria-hidden="true">01</div>
+            <h3>Osobní směr a změna</h3>
+            <p>Když cítíš, že chceš v životě něco změnit, ale zatím nevíš, kudy se vydat.</p>
+          </article>
+          <article class="card">
+            <div class="card-number" aria-hidden="true">02</div>
+            <h3>Zastavení a nový pohled</h3>
+            <p>Když se točíš v kruhu, řešíš náročnou situaci nebo potřebuješ získat odstup.</p>
+          </article>
+          <article class="card">
+            <div class="card-number" aria-hidden="true">03</div>
+            <h3>Sebepoznání a vlastní potenciál</h3>
+            <p>Když chceš lépe porozumět sobě, svým potřebám, hodnotám a možnostem.</p>
+          </article>
+          <article class="card">
+            <div class="card-number" aria-hidden="true">04</div>
+            <h3>Profesní a pracovní rozvoj</h3>
+            <p>Když řešíš pracovní změnu, svou roli v týmu, komunikaci, motivaci nebo hledáš nový směr v profesním životě. Také pro manažery, kteří chtějí lépe pracovat se svými lidmi.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- KONTAKT -->
-
-    <section class="contact" id="kontakt">
-      <div class="wrap">
-
-        <div class="contact-inner">
-
-          <div class="section-head">
-            <p class="eyebrow">První krok nemusí být velký</p>
-
-            <h2>Začneme rozhovorem?</h2>
-
-            <p>
-              Nemusíš mít všechno promyšlené. Napiš mi pár slov
-              o tom, co právě řešíš, nebo se ozvi jen proto,
-              abychom zjistili, jestli ti koučink dává smysl.
-            </p>
-          </div>
-
-          <a
-            class="contact-email"
-            href="mailto:massebe.cz@gmail.com?subject=Kou%C4%8Dink%20%E2%80%93%20M%C3%81%C5%A0%20SE(BE)"
-          >
-            massebe.cz@gmail.com
-          </a>
-
-          <p class="contact-note">
-            První zpráva tě k ničemu nezavazuje.
-            Můžeme si nejprve ujasnit, co potřebuješ
-            a zda je koučink pro tebe vhodnou cestou.
-          </p>
-
-          <a
-            class="button"
-            href="mailto:massebe.cz@gmail.com?subject=Kou%C4%8Dink%20%E2%80%93%20M%C3%81%C5%A0%20SE(BE)"
-          >
-            Napsat Danielovi ↗
-          </a>
-
+    <section class="contact-section" id="kontakt">
+      <div class="wrap contact-inner">
+        <div class="section-head">
+          <p class="eyebrow">První krok nemusí být velký</p>
+          <h2>Začneme rozhovorem?</h2>
+          <p>První setkání je zdarma a nezávazné. Poznáme se, společně pojmenujeme, co právě řešíš, a zjistíme, jestli si vzájemně vyhovujeme.</p>
         </div>
+        <div class="contact-actions">
+          <a class="button" href="https://calendar.app.google/NJ7az3mU5WE9Zf3MA" target="_blank" rel="noopener noreferrer">Vybrat termín setkání</a>
+          <a class="button" href="mailto:massebe.cz@gmail.com?subject=Kou%C4%8Dink%20%E2%80%93%20M%C3%81%C5%A0%20SE(BE)">Napsat e-mail</a>
+        </div>
+        <div class="contact-details">
+          <a href="mailto:massebe.cz@gmail.com">massebe.cz@gmail.com</a>
+          <a href="tel:+420773871723">+420 773 871 723</a>
+        </div>
+        <p class="contact-note">Nejčastěji se potkáváme online. Osobní setkání je možné po domluvě.</p>
       </div>
     </section>
-
   </main>
-
-  <!-- PATIČKA -->
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
-
       <p class="footer-brand">MÁŠ SE(BE)?</p>
-
       <p>Daniel Verner | kouč</p>
-
+      <p><a href="#ochrana-udaju">Ochrana osobních údajů</a></p>
       <p>© <span id="year">2026</span> Všechna práva vyhrazena.</p>
-
     </div>
   </footer>
 
+  <section class="privacy-note" id="ochrana-udaju">
+    <div class="wrap">
+      <details>
+        <summary>Informace o ochraně osobních údajů</summary>
+        <p>
+          Pokud mě kontaktuješ e-mailem nebo telefonicky, použiji sdělené kontaktní údaje
+          pouze pro vyřízení tvé zprávy a případnou domluvu setkání. Rezervace termínu probíhá
+          prostřednictvím služby Google Kalendář. Údaje, které při rezervaci zadáš, zpracovává
+          také společnost Google podle svých zásad ochrany soukromí. Tento stručný text je
+          základní informací, nikoli úplným právním dokumentem.
+        </p>
+      </details>
+    </div>
+  </section>
+
   <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-
-    const bookingUrl = "https://calendar.app.google/NJ7az3mU5WE9Zf3MA";
-    const calendarMonth = document.getElementById("calendar-month");
-    const calendarGrid = document.getElementById("calendar-grid");
-    const today = new Date();
-    let displayedMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-
-    const weekdays = ["Po", "Út", "St", "Čt", "Pá", "So", "Ne"];
-    const monthFormatter = new Intl.DateTimeFormat("cs-CZ", {
-      month: "long",
-      year: "numeric"
-    });
-
-    function renderCalendar() {
-      calendarMonth.textContent = monthFormatter.format(displayedMonth);
-      calendarGrid.replaceChildren();
-
-      weekdays.forEach((day) => {
-        const label = document.createElement("span");
-        label.className = "calendar-weekday";
-        label.textContent = day;
-        label.setAttribute("aria-hidden", "true");
-        calendarGrid.appendChild(label);
-      });
-
-      const year = displayedMonth.getFullYear();
-      const month = displayedMonth.getMonth();
-      const firstWeekday = (new Date(year, month, 1).getDay() + 6) % 7;
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-      for (let i = 0; i < firstWeekday; i++) {
-        const empty = document.createElement("span");
-        empty.className = "calendar-empty";
-        empty.setAttribute("aria-hidden", "true");
-        calendarGrid.appendChild(empty);
-      }
-
-      for (let day = 1; day <= daysInMonth; day++) {
-        const dateLink = document.createElement("a");
-        const isToday =
-          year === today.getFullYear() &&
-          month === today.getMonth() &&
-          day === today.getDate();
-
-        dateLink.className = "calendar-day" + (isToday ? " today" : "");
-        dateLink.href = bookingUrl;
-        dateLink.target = "_blank";
-        dateLink.rel = "noopener noreferrer";
-        dateLink.textContent = day;
-        dateLink.setAttribute("aria-label", `${day}. ${monthFormatter.format(displayedMonth)}`);
-        if (isToday) dateLink.setAttribute("aria-current", "date");
-        calendarGrid.appendChild(dateLink);
-      }
-    }
-
-    document.getElementById("calendar-prev").addEventListener("click", () => {
-      displayedMonth = new Date(displayedMonth.getFullYear(), displayedMonth.getMonth() - 1, 1);
-      renderCalendar();
-    });
-
-    document.getElementById("calendar-next").addEventListener("click", () => {
-      displayedMonth = new Date(displayedMonth.getFullYear(), displayedMonth.getMonth() + 1, 1);
-      renderCalendar();
-    });
-
-    renderCalendar();
-
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
