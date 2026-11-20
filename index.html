@@ -335,41 +335,18 @@
     <div class="wrap footer-inner">
       <p class="footer-brand">MÁŠ SE(BE)?</p>
       <p>Daniel Verner | kouč</p>
-      <p><a id="privacy-link" href="#ochrana-udaju">Ochrana osobních údajů</a></p>
+      <p><a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a></p>
       <p>© <span id="year">2026</span> Všechna práva vyhrazena.</p>
     </div>
   </footer>
 
-  <section class="privacy-note" id="ochrana-udaju" tabindex="-1">
-    <div class="wrap">
-      <details open>
-        <summary>Informace o ochraně osobních údajů</summary>
-        <p>
-          Pokud mě kontaktuješ e-mailem nebo telefonicky, použiji sdělené kontaktní údaje
-          pouze pro vyřízení tvé zprávy a případnou domluvu setkání. Rezervace termínu probíhá
-          prostřednictvím služby Google Kalendář. Údaje, které při rezervaci zadáš, zpracovává
-          také společnost Google podle svých zásad ochrany soukromí. Tento stručný text je
-          základní informací, nikoli úplným právním dokumentem.
-        </p>
-      </details>
-    </div>
-  </section>
+
 
 
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    const privacyLink = document.getElementById("privacy-link");
-    const privacySection = document.getElementById("ochrana-udaju");
-    const privacyDetails = privacySection?.querySelector("details");
-
-    privacyLink?.addEventListener("click", (event) => {
-      event.preventDefault();
-      if (privacyDetails) privacyDetails.open = true;
-      privacySection?.scrollIntoView({ behavior: "smooth", block: "start" });
-      history.replaceState(null, "", "#ochrana-udaju");
-    });
   </script>
 </body>
 </html>
