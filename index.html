@@ -194,7 +194,6 @@
     .footer-brand { color: white; font-weight: 800; }
     .footer-inner a { color: white; text-underline-offset: 3px; }
     .privacy-note { padding: 22px 0; background: #14291e; color: rgba(255,255,255,.7); }
-    .privacy-note { scroll-margin-top: 100px; }
     .privacy-note details { max-width: 900px; margin: 0 auto; }
     .privacy-note summary { color: white; font-size: .86rem; font-weight: 700; cursor: pointer; }
     .privacy-note p { margin: 10px 0 0; font-size: .78rem; line-height: 1.65; }
@@ -330,15 +329,6 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <p class="footer-brand">MÁŠ SE(BE)?</p>
-      <p>Daniel Verner | kouč</p>
-      <p><a href="#ochrana-udaju">Ochrana osobních údajů</a></p>
-      <p>© <span id="year">2026</span> Všechna práva vyhrazena.</p>
-    </div>
-  </footer>
-
   <section class="privacy-note" id="ochrana-udaju">
     <div class="wrap">
       <details open>
@@ -353,6 +343,17 @@
       </details>
     </div>
   </section>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="footer-brand">MÁŠ SE(BE)?</p>
+      <p>Daniel Verner | kouč</p>
+      <p><a href="#ochrana-udaju">Ochrana osobních údajů</a></p>
+      <p>© <span id="year">2026</span> Všechna práva vyhrazena.</p>
+    </div>
+  </footer>
+
+
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
